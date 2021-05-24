@@ -1,0 +1,36 @@
+
+.bg-white{
+    -fx-background-color: #ffffff;
+}
+
+.bg-img-swan{
+   -fx-background-image: url("../assets/bg.jpg");
+   -fx-background-position: center;
+   -fx-background-repeat: no-repeat;
+   -fx-background-size: cover;
+}
+
+.field{
+
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-control-inner-background: #EDEDED;
+    -fx-background-insets: 0, 0 0 0 0 ;
+    -fx-background-radius: 5 ;
+    -fx-text-box-border: transparent;
+}
+
+.login-btn{
+          -fx-background-color:transparent;
+          -fx-border-color:transparent;
+          -fx-text-fill:transparent;
+}
+
+
+.login-btn:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.login-btn:pressed{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
