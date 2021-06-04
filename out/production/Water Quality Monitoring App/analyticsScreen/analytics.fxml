@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="bg-white" stylesheets="@analytics.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="analyticsScreen.AnalyticsController">
+    <children>
+        <Pane layoutX="-1.0" prefHeight="601.0" prefWidth="280.0" styleClass="bg-img-swan">
+            <children>
+                <ImageView fitHeight="114.0" fitWidth="114.0" layoutX="90.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/swan_logo_white.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="104.0" layoutY="117.0" text="John Doe" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" styleClass="menu-button" text="Parameters" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font></Button>
+                <Button layoutX="110.0" layoutY="242.0" mnemonicParsing="false" styleClass="menu-button" text="Devices" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font></Button>
+                <Button layoutX="110.0" layoutY="288.0" mnemonicParsing="false" styleClass="menu-button" text="Analytics" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font></Button>
+                <Button layoutX="110.0" layoutY="334.0" mnemonicParsing="false" styleClass="menu-button" text="Applications" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font></Button>
+                <Button layoutX="110.0" layoutY="473.0" mnemonicParsing="false" styleClass="logout-btn">
+                    <graphic>
+                        <ImageView fitHeight="51.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/logout.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="68.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/parameters.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="61.0" fitWidth="60.0" layoutX="58.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/devices.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="64.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/analytics.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Button layoutX="966.0" layoutY="2.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="29.0" styleClass="x-btn">
+            <graphic>
+                <ImageView fitHeight="17.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/x_btn_black.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>
