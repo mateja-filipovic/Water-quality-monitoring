@@ -53,7 +53,7 @@
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font></Label>
-            <Button layoutX="112.0" layoutY="354.0" mnemonicParsing="false" styleClass="login-btn">
+            <Button layoutX="112.0" layoutY="354.0" mnemonicParsing="false" onAction="#login" styleClass="login-btn">
                <graphic>
                </graphic>
                <graphic>
