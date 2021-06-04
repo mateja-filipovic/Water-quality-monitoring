@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -74,54 +73,6 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="324.0" layoutY="57.0" prefHeight="210.0" prefWidth="190.0">
-            <styleClass>
-                <String fx:value="param-container" />
-                <String fx:value="bg-white" />
-            </styleClass>
-            <children>
-                <Pane prefHeight="40.0" prefWidth="190.0" styleClass="label-background">
-                    <children>
-                        <Label layoutX="24.0" layoutY="9.0" text="Ammonia [mg/l]" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Label layoutX="81.0" layoutY="78.0" text="5" textFill="#504b4b">
-                    <font>
-                        <Font name="Segoe UI Bold" size="48.0" />
-                    </font>
-                </Label>
-                <Button layoutX="139.0" layoutY="151.0" mnemonicParsing="false" styleClass="logout-btn" />
-                <Pane layoutY="181.0" prefHeight="30.0" prefWidth="191.0" styleClass="ref-values-container">
-                    <children>
-                        <Label layoutX="41.0" layoutY="9.0" text="MIN:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="97.0" layoutY="9.0" text="MAX:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Circle fill="#e16c6c" layoutX="170.0" layoutY="162.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            </children>
-        </Pane>
         <Button layoutX="966.0" layoutY="2.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="29.0" styleClass="x-btn">
             <graphic>
                 <ImageView fitHeight="17.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
@@ -131,175 +82,75 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Pane layoutX="547.0" layoutY="57.0" prefHeight="210.0" prefWidth="190.0">
-            <styleClass>
-                <String fx:value="param-container" />
-                <String fx:value="bg-white" />
-            </styleClass>
-            <children>
-                <Pane prefHeight="40.0" prefWidth="190.0" styleClass="label-background">
-                    <children>
-                        <Label layoutX="52.0" layoutY="9.0" text="DO [mg/l]" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Label layoutX="81.0" layoutY="78.0" text="5" textFill="#504b4b">
-                    <font>
-                        <Font name="Segoe UI Bold" size="48.0" />
-                    </font>
-                </Label>
-                <Button layoutX="139.0" layoutY="151.0" mnemonicParsing="false" styleClass="logout-btn" />
-                <Pane layoutY="181.0" prefHeight="30.0" prefWidth="191.0" styleClass="ref-values-container">
-                    <children>
-                        <Label layoutX="41.0" layoutY="9.0" text="MIN:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="97.0" layoutY="9.0" text="MAX:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Circle fill="#e16c6c" layoutX="170.0" layoutY="161.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            </children>
-        </Pane>
-        <Pane layoutX="775.0" layoutY="57.0" prefHeight="210.0" prefWidth="190.0">
-            <styleClass>
-                <String fx:value="param-container" />
-                <String fx:value="bg-white" />
-            </styleClass>
-            <children>
-                <Pane prefHeight="40.0" prefWidth="190.0" styleClass="label-background">
-                    <children>
-                        <Label layoutX="56.0" layoutY="9.0" text="ORP[mV]" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Label layoutX="81.0" layoutY="78.0" text="5" textFill="#504b4b">
-                    <font>
-                        <Font name="Segoe UI Bold" size="48.0" />
-                    </font>
-                </Label>
-                <Button layoutX="139.0" layoutY="151.0" mnemonicParsing="false" styleClass="logout-btn" />
-                <Pane layoutY="181.0" prefHeight="30.0" prefWidth="191.0" styleClass="ref-values-container">
-                    <children>
-                        <Label layoutX="41.0" layoutY="9.0" text="MIN:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="97.0" layoutY="9.0" text="MAX:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Circle fill="#e16c6c" layoutX="170.0" layoutY="161.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            </children>
-        </Pane>
-        <Pane layoutX="324.0" layoutY="301.0" prefHeight="210.0" prefWidth="190.0">
-            <styleClass>
-                <String fx:value="param-container" />
-                <String fx:value="bg-white" />
-            </styleClass>
-            <children>
-                <Pane prefHeight="40.0" prefWidth="190.0" styleClass="label-background">
-                    <children>
-                        <Label layoutX="28.0" layoutY="9.0" text="Turbidity [NTU]" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Label layoutX="82.0" layoutY="76.0" text="5" textFill="#504b4b">
-                    <font>
-                        <Font name="Segoe UI Bold" size="48.0" />
-                    </font>
-                </Label>
-                <Button layoutX="139.0" layoutY="151.0" mnemonicParsing="false" styleClass="logout-btn" />
-                <Circle fill="#e16c6c" layoutX="170.0" layoutY="162.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                <Pane layoutY="181.0" prefHeight="30.0" prefWidth="191.0" styleClass="ref-values-container">
-                    <children>
-                        <Label layoutX="41.0" layoutY="9.0" text="MIN:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="97.0" layoutY="9.0" text="MAX:" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="12.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-            </children>
-        </Pane>
-        <Pane layoutX="547.0" layoutY="301.0" prefHeight="210.0" prefWidth="420.0">
-            <styleClass>
-                <String fx:value="param-container" />
-                <String fx:value="bg-white" />
-            </styleClass>
-            <children>
-                <Pane prefHeight="40.0" prefWidth="420.0" styleClass="label-background">
-                    <children>
-                        <Label layoutX="198.0" layoutY="9.0" text="pH" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Button layoutX="139.0" layoutY="151.0" mnemonicParsing="false" styleClass="logout-btn" />
-                <BarChart layoutY="40.0" prefHeight="171.0" prefWidth="400.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>
-            </children>
-        </Pane>
+      <BarChart layoutX="305.0" layoutY="73.0" prefHeight="213.0" prefWidth="266.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <BarChart layoutX="313.0" layoutY="328.0" prefHeight="213.0" prefWidth="266.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <BarChart layoutX="599.0" layoutY="73.0" prefHeight="160.0" prefWidth="358.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <BarChart layoutX="599.0" layoutY="240.0" prefHeight="160.0" prefWidth="358.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <BarChart layoutX="599.0" layoutY="400.0" prefHeight="160.0" prefWidth="358.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <Label layoutX="404.0" layoutY="60.0" text="Acidity - pH" textFill="#333333">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="DODGERBLUE" layoutX="394.0" layoutY="72.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Label layoutX="412.0" layoutY="308.0" text="ORP [mV]" textFill="#333333">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="DODGERBLUE" layoutX="402.0" layoutY="320.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Label layoutX="704.0" layoutY="54.0" text="Dissolved oxygen [mg/l]" textFill="#333333">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="DODGERBLUE" layoutX="694.0" layoutY="66.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Label layoutX="737.0" layoutY="221.0" text="Ammonia [mg/l]" textFill="#333333">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="DODGERBLUE" layoutX="727.0" layoutY="233.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Label layoutX="718.0" layoutY="388.0" text="Turbidity [NTU]" textFill="#333333">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="DODGERBLUE" layoutX="709.0" layoutY="401.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
     </children>
 </AnchorPane>

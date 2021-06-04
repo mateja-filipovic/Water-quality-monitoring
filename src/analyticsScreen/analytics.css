@@ -47,6 +47,10 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
 }
 
+.bg-green{
+    -fx-background-color: green;
+}
+
 .param-container{
         -fx-background-radius: 5px;
         -fx-border-radius: 5px;
