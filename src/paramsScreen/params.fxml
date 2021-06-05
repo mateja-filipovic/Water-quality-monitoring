@@ -27,10 +27,14 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" styleClass="menu-button" text="Parameters" textFill="WHITE">
+            <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" text="Parameters" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
-               </font></Button>
+               </font>
+               <styleClass>
+                  <String fx:value="menu-button" />
+                  <String fx:value="active-element" />
+               </styleClass></Button>
             <Button layoutX="110.0" layoutY="242.0" mnemonicParsing="false" styleClass="menu-button" text="Devices" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
