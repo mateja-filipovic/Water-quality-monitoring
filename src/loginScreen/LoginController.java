@@ -18,7 +18,7 @@ public class LoginController {
     }
 
     public void login(ActionEvent event) throws IOException {
-        Parent paramsView = FXMLLoader.load(getClass().getResource("/paramsScreen/params.fxml"));
+        Parent paramsView = FXMLLoader.load(getClass().getResource("/homeScreen/homeScreen.fxml"));
         Scene newScene = new Scene(paramsView);
         Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
         window.setScene(newScene);
