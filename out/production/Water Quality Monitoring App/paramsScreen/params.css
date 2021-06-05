@@ -37,6 +37,7 @@
 .menu-button{
     -fx-background-color:transparent;
     -fx-border-color:transparent;
+    -fx-padding: 0 5px 0 5px;
 }
 
 .menu-button:hover {
@@ -58,4 +59,8 @@
     -fx-background-color: #01C26E;
     -fx-background-radius: 0 0 5px 5px;
     -fx-border-width: 5px;
+}
+
+.active-element{
+        -fx-background-color: rgba(255, 255, 255, 0.3);
 }
