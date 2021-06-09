@@ -24,17 +24,35 @@ public class HomeScreenController implements Initializable {
         screens.put("paramsScreen", "/paramsScreen/params.fxml");
         screens.put("analyticsScreen", "/analyticsScreen/analytics.fxml");
         screens.put("devicesScreen", "/devicesScreen/devices.fxml");
+        screens.put("applicationsScreen", "/actionsScreen/actions.fxml");
 
+        Pane view = getPage("paramsScreen");
+        mainPane.setCenter(view);
+    }
+
+    private Pane getPage(String fileName) {
+        Pane view = null;
         try {
-            Pane view = getPage("paramsScreen");
-            mainPane.setCenter(view);
+            view = FXMLLoader.load(getClass().getResource(screens.get(fileName)));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return view;
     }
 
-    private Pane getPage(String fileName) throws IOException {
-        Pane view = FXMLLoader.load(getClass().getResource(screens.get(fileName)));
-        return view;
+    private void changeScene(Pane newPane){
+        mainPane.setCenter(newPane);
+    }
+
+    public void onClickParams(){
+        changeScene(getPage("paramsScreen"));
+    }
+
+    public void onClickAnalytics(){
+        changeScene(getPage("analyticsScreen"));
+    }
+
+    public void onClickApplications(){
+        changeScene((getPage("applicationsScreen")));
     }
 }

@@ -26,7 +26,7 @@
                               <Font name="Segoe UI Bold" size="18.0" />
                           </font>
                       </Label>
-                      <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" text="Parameters" textFill="WHITE">
+                      <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickParams" text="Parameters" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
@@ -40,12 +40,12 @@
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
                   </Button>
-                      <Button layoutX="110.0" layoutY="286.0" mnemonicParsing="false" styleClass="menu-button" text="Analytics" textFill="WHITE">
+                      <Button layoutX="110.0" layoutY="286.0" mnemonicParsing="false" onAction="#onClickAnalytics" styleClass="menu-button" text="Analytics" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
                   </Button>
-                      <Button layoutX="108.0" layoutY="327.0" mnemonicParsing="false" styleClass="menu-button" text="Applications" textFill="WHITE">
+                      <Button layoutX="108.0" layoutY="327.0" mnemonicParsing="false" onAction="#onClickApplications" styleClass="menu-button" text="Applications" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>

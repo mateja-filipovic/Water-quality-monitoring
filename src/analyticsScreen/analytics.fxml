@@ -11,84 +11,86 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="600.0" maxWidth="700.0" prefHeight="600.0" prefWidth="700.0" styleClass="bg-white" stylesheets="@analytics.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="analyticsScreen.AnalyticsController">
-    <BarChart layoutX="43.0" layoutY="83.0" prefHeight="213.0" prefWidth="266.0">
-        <xAxis>
-            <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-            <NumberAxis side="LEFT" />
-        </yAxis>
-    </BarChart>
-    <Label layoutX="142.0" layoutY="70.0" text="Acidity - pH" textFill="#333333">
-        <font>
-            <Font name="Segoe UI Bold" size="18.0" />
-        </font>
-    </Label>
-    <Circle fill="DODGERBLUE" layoutX="132.0" layoutY="82.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-   <BarChart layoutX="43.0" layoutY="317.0" prefHeight="213.0" prefWidth="266.0">
-      <xAxis>
-         <CategoryAxis side="BOTTOM" />
-      </xAxis>
-      <yAxis>
-         <NumberAxis side="LEFT" />
-      </yAxis>
-   </BarChart>
-   <Label layoutX="133.0" layoutY="305.0" text="Turbidity [NTU]" textFill="#333333">
-      <font>
-         <Font name="Segoe UI Bold" size="18.0" />
-      </font>
-   </Label>
-   <Circle fill="DODGERBLUE" layoutX="123.0" layoutY="317.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-    <BarChart layoutX="321.0" layoutY="66.0" prefHeight="160.0" prefWidth="358.0">
-        <xAxis>
-            <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-            <NumberAxis side="LEFT" />
-        </yAxis>
-    </BarChart>
-   <Label layoutX="423.0" layoutY="53.0" text="Dissolved oxygen [mg/l]" textFill="#333333">
-      <font>
-         <Font name="Segoe UI Bold" size="18.0" />
-      </font>
-   </Label>
-   <Circle fill="DODGERBLUE" layoutX="413.0" layoutY="65.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-   <BarChart layoutX="321.0" layoutY="229.0" prefHeight="160.0" prefWidth="358.0">
-      <xAxis>
-         <CategoryAxis side="BOTTOM" />
-      </xAxis>
-      <yAxis>
-         <NumberAxis side="LEFT" />
-      </yAxis>
-   </BarChart>
-   <Label layoutX="456.0" layoutY="214.0" text="Ammonia [mg/l]" textFill="#333333">
-      <font>
-         <Font name="Segoe UI Bold" size="18.0" />
-      </font>
-   </Label>
-   <Circle fill="DODGERBLUE" layoutX="446.0" layoutY="226.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-   <BarChart layoutX="321.0" layoutY="394.0" prefHeight="160.0" prefWidth="358.0">
-      <xAxis>
-         <CategoryAxis side="BOTTOM" />
-      </xAxis>
-      <yAxis>
-         <NumberAxis side="LEFT" />
-      </yAxis>
-   </BarChart>
-   <Label layoutX="493.0" layoutY="377.0" text="ORP [mV]" textFill="#333333">
-      <font>
-         <Font name="Segoe UI Bold" size="18.0" />
-      </font>
-   </Label>
-   <Circle fill="DODGERBLUE" layoutX="483.0" layoutY="389.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-    <Button layoutX="748.0" layoutY="1.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="29.0" styleClass="x-btn">
-        <graphic>
-            <ImageView fitHeight="17.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../assets/x_btn_black.png" />
-                </image>
-            </ImageView>
-        </graphic>
-    </Button>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" styleClass="bg-white" stylesheets="@analytics.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="analyticsScreen.AnalyticsController">
+    <children>
+        <BarChart layoutX="43.0" layoutY="83.0" prefHeight="213.0" prefWidth="266.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <Label layoutX="142.0" layoutY="70.0" text="Acidity - pH" textFill="#333333">
+            <font>
+                <Font name="Segoe UI Bold" size="18.0" />
+            </font>
+        </Label>
+        <Circle fill="DODGERBLUE" layoutX="132.0" layoutY="82.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+       <BarChart layoutX="43.0" layoutY="317.0" prefHeight="213.0" prefWidth="266.0">
+          <xAxis>
+             <CategoryAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+             <NumberAxis side="LEFT" />
+          </yAxis>
+       </BarChart>
+       <Label layoutX="133.0" layoutY="305.0" text="Turbidity [NTU]" textFill="#333333">
+          <font>
+             <Font name="Segoe UI Bold" size="18.0" />
+          </font>
+       </Label>
+       <Circle fill="DODGERBLUE" layoutX="123.0" layoutY="317.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+        <BarChart layoutX="321.0" layoutY="66.0" prefHeight="160.0" prefWidth="358.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </BarChart>
+       <Label layoutX="423.0" layoutY="53.0" text="Dissolved oxygen [mg/l]" textFill="#333333">
+          <font>
+             <Font name="Segoe UI Bold" size="18.0" />
+          </font>
+       </Label>
+       <Circle fill="DODGERBLUE" layoutX="413.0" layoutY="65.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+       <BarChart layoutX="321.0" layoutY="229.0" prefHeight="160.0" prefWidth="358.0">
+          <xAxis>
+             <CategoryAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+             <NumberAxis side="LEFT" />
+          </yAxis>
+       </BarChart>
+       <Label layoutX="456.0" layoutY="214.0" text="Ammonia [mg/l]" textFill="#333333">
+          <font>
+             <Font name="Segoe UI Bold" size="18.0" />
+          </font>
+       </Label>
+       <Circle fill="DODGERBLUE" layoutX="446.0" layoutY="226.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+       <BarChart layoutX="321.0" layoutY="394.0" prefHeight="160.0" prefWidth="358.0">
+          <xAxis>
+             <CategoryAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+             <NumberAxis side="LEFT" />
+          </yAxis>
+       </BarChart>
+       <Label layoutX="493.0" layoutY="377.0" text="ORP [mV]" textFill="#333333">
+          <font>
+             <Font name="Segoe UI Bold" size="18.0" />
+          </font>
+       </Label>
+       <Circle fill="DODGERBLUE" layoutX="483.0" layoutY="389.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+        <Button layoutX="686.5" layoutY="1.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="29.0" styleClass="x-btn">
+            <graphic>
+                <ImageView fitHeight="17.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/x_btn_black.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
 </AnchorPane>
