@@ -46,10 +46,10 @@ public class ActionsController implements Initializable {
             }
         });
 
-        userList.add(new User("Mateja", "Filipovic", "fm@gmail.com"));
+        userList.add(new User("Mateja", "Filipovic", "mata", "admin", "email@gmail.com", 1));
         nameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
-        contactColumn.setCellValueFactory(new PropertyValueFactory<User, String>("contactInfo"));
+        contactColumn.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
         applicationsTableview.setItems(userList);
     }
 

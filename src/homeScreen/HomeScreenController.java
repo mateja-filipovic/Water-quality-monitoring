@@ -9,10 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import models.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,10 +28,12 @@ public class HomeScreenController implements Initializable {
     @FXML public Button devicesButton;
     @FXML public Button analyticsButton;
     @FXML public Button actionsButton;
+    @FXML public Label userInfo;
     @FXML private BorderPane mainPane;
     private Map<String, String> screens;
     private Map<Integer, Button> buttonSelectors;
     private int selected = 0; // 0 params, 1 devices, 2 analytics, 3 actions
+    private User currentUser;
 
 
     @Override
@@ -47,8 +51,13 @@ public class HomeScreenController implements Initializable {
         buttonSelectors.put(2, analyticsButton);
         buttonSelectors.put(3, actionsButton);
 
+
         Pane view = getPage("paramsScreen");
         mainPane.setCenter(view);
+    }
+
+    public void displayUserInfo(){
+        userInfo.setText(currentUser.getName() + " " + currentUser.getLastName());
     }
 
     private Pane getPage(String fileName) {
@@ -102,5 +111,14 @@ public class HomeScreenController implements Initializable {
         Stage window = (Stage)(((Node)actionEvent.getSource()).getScene().getWindow());
         window.setScene(newScene);
         window.show();
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+        displayUserInfo();
     }
 }

@@ -21,7 +21,7 @@
                               <Image url="@../assets/swan_logo_white.png" />
                           </image>
                       </ImageView>
-                      <Label layoutX="104.0" layoutY="117.0" text="John Doe" textFill="WHITE">
+                      <Label fx:id="userInfo" layoutX="2.0" layoutY="117.0" prefHeight="23.0" prefWidth="278.0" style="-fx-alignment: center;" text="John Doe" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="18.0" />
                           </font>
