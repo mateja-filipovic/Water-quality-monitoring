@@ -26,7 +26,7 @@
                               <Font name="Segoe UI Bold" size="18.0" />
                           </font>
                       </Label>
-                      <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickParams" text="Parameters" textFill="WHITE">
+                      <Button fx:id="paramsButton" layoutX="110.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickParams" text="Parameters" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
@@ -35,22 +35,22 @@
                               <String fx:value="active-element" />
                           </styleClass>
                   </Button>
-                      <Button layoutX="110.0" layoutY="242.0" mnemonicParsing="false" onAction="#onClickDevices" styleClass="menu-button" text="Devices" textFill="WHITE">
+                      <Button fx:id="devicesButton" layoutX="110.0" layoutY="242.0" mnemonicParsing="false" onAction="#onClickDevices" styleClass="menu-button" text="Devices" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
                   </Button>
-                      <Button layoutX="110.0" layoutY="286.0" mnemonicParsing="false" onAction="#onClickAnalytics" styleClass="menu-button" text="Analytics" textFill="WHITE">
+                      <Button fx:id="analyticsButton" layoutX="110.0" layoutY="286.0" mnemonicParsing="false" onAction="#onClickAnalytics" styleClass="menu-button" text="Analytics" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
                   </Button>
-                      <Button layoutX="108.0" layoutY="327.0" mnemonicParsing="false" onAction="#onClickApplications" styleClass="menu-button" text="Applications" textFill="WHITE">
+                      <Button fx:id="actionsButton" layoutX="110.0" layoutY="327.0" mnemonicParsing="false" onAction="#onClickApplications" styleClass="menu-button" text="Actions" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>
                   </Button>
-                      <Button layoutX="110.0" layoutY="473.0" mnemonicParsing="false" styleClass="logout-btn">
+                      <Button layoutX="110.0" layoutY="473.0" mnemonicParsing="false" onAction="#logOut" styleClass="logout-btn">
                           <graphic>
                               <ImageView fitHeight="51.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
@@ -74,7 +74,7 @@
                               <Image url="@../assets/analytics.png" />
                           </image>
                       </ImageView>
-                      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="73.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="74.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../assets/table-white.png" />
                           </image>

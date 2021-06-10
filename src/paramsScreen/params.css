@@ -68,3 +68,7 @@
 .active-element{
         -fx-background-color: rgba(255, 255, 255, 0.3);
 }
+
+.chart-bar {
+    -fx-bar-fill: #01C26E;
+}
