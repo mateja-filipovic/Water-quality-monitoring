@@ -18,6 +18,10 @@ public class Reka extends Thread {
         sonde.add(sonda);
     }
 
+    public void zaustavi() {
+        this.interrupt();
+    }
+
     @Override
     public void run() {
         try {
@@ -27,12 +31,12 @@ public class Reka extends Thread {
                 synchronized (this) {
                     for(Sonda s: sonde) {
                         s.promeniParametre();
-                        if(brojMerenja == 24 * 60 * 2) {
+                        if(brojMerenja == 2) {
                             s.azurirajBazu();
                         }
                     }
                 }
-                if(brojMerenja == 24 * 60 * 2) {
+                if(brojMerenja == 2) {
                     brojMerenja = 0;
                 }
             }

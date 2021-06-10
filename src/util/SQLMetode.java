@@ -3,6 +3,7 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class SQLMetode {
 
@@ -33,7 +34,14 @@ public class SQLMetode {
         }
     }
 
-    public static void unesiVrednosti(int id, double dohvProsekNH, double dohvProsekO, int dohvProsekORP, double dohvProsekPH, double dohvProsekZam) {
-
+    public void unesiVrednosti(int id, double dohvProsekNH, double dohvProsekO, int dohvProsekORP, double dohvProsekPH, double dohvProsekZam) {
+        System.out.println("Ubacujem");
+        String sql = "INSERT INTO Parametri(IdUre, NH3, O2, ORP, PH, Zamucenost) VALUES (" + id + ", " + dohvProsekNH + ", " +
+                dohvProsekO + ", " + dohvProsekORP + ", " + dohvProsekPH + ", " + dohvProsekZam + ")";
+        try(Statement stmt = konekcija.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

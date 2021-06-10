@@ -16,6 +16,11 @@ public class Sonda {
     private double sumaO = 0;
     private double sumaZam = 0;
     private double sumaPH = 0;
+    private SQLMetode sql;
+
+    public Sonda(SQLMetode sql) {
+        this.sql = sql;
+    }
 
     public synchronized void promeniParametre() {
         promeniPH();
@@ -34,23 +39,23 @@ public class Sonda {
     }
 
     public double dohvProsekPH() {
-        return sumaPH / (24 * 60 * 2);
+        return sumaPH / (2);
     }
 
     public double dohvProsekNH() {
-        return sumaNH / (24 * 60 * 2);
+        return sumaNH / (2);
     }
 
     public double dohvProsekO() {
-        return sumaO / (24 * 60 * 2);
+        return sumaO / (2);
     }
 
     public double dohvProsekZam() {
-        return sumaZam / (24 * 60 * 2);
+        return sumaZam / (2);
     }
 
     public int dohvProsekORP() {
-        return sumaORP / (24 * 60 * 2);
+        return sumaORP / (2);
     }
 
     private void promeniPH() {
@@ -99,7 +104,8 @@ public class Sonda {
     }
 
     public synchronized void azurirajBazu() {
-        SQLMetode.unesiVrednosti(id, dohvProsekNH(), dohvProsekO(), dohvProsekORP(), dohvProsekPH(), dohvProsekZam());
+        sql.unesiVrednosti(id, dohvProsekNH(), dohvProsekO(), dohvProsekORP(), dohvProsekPH(), dohvProsekZam());
+        restartuj();
     }
 
 }
