@@ -32,4 +32,8 @@ public class SQLMetode {
             }
         }
     }
+
+    public static void unesiVrednosti(int id, double dohvProsekNH, double dohvProsekO, int dohvProsekORP, double dohvProsekPH, double dohvProsekZam) {
+
+    }
 }
