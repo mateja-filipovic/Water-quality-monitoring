@@ -35,7 +35,7 @@
                               <String fx:value="active-element" />
                           </styleClass>
                   </Button>
-                      <Button layoutX="110.0" layoutY="242.0" mnemonicParsing="false" styleClass="menu-button" text="Devices" textFill="WHITE">
+                      <Button layoutX="110.0" layoutY="242.0" mnemonicParsing="false" onAction="#onClickDevices" styleClass="menu-button" text="Devices" textFill="WHITE">
                           <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                           </font>

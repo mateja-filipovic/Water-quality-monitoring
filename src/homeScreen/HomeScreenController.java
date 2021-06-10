@@ -25,6 +25,7 @@ public class HomeScreenController implements Initializable {
         screens.put("analyticsScreen", "/analyticsScreen/analytics.fxml");
         screens.put("devicesScreen", "/devicesScreen/devices.fxml");
         screens.put("applicationsScreen", "/actionsScreen/actions.fxml");
+        screens.put("devicesScreen", "/devicesScreen/devices.fxml");
 
         Pane view = getPage("paramsScreen");
         mainPane.setCenter(view);
@@ -54,5 +55,9 @@ public class HomeScreenController implements Initializable {
 
     public void onClickApplications(){
         changeScene((getPage("applicationsScreen")));
+    }
+
+    public void onClickDevices(){
+        changeScene((getPage("devicesScreen")));
     }
 }
