@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.User;
+import simulacija.Sonda;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,6 +35,7 @@ public class HomeScreenController implements Initializable {
     private Map<Integer, Button> buttonSelectors;
     private int selected = 0; // 0 params, 1 devices, 2 analytics, 3 actions
     private User currentUser;
+    private Sonda sonda;
 
 
     @Override
@@ -121,4 +123,6 @@ public class HomeScreenController implements Initializable {
         this.currentUser = currentUser;
         displayUserInfo();
     }
+
+    public void updateView(){}
 }

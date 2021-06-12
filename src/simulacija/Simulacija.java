@@ -1,5 +1,6 @@
 package simulacija;
 
+import homeScreen.HomeScreenController;
 import paramsScreen.ParamsController;
 
 import java.util.ArrayList;
@@ -10,11 +11,11 @@ public class Simulacija extends Thread {
     private int interval = 0;
     private List<Sonda> sonde = new ArrayList<>();
     private int brojMerenja = 0;
-    private ParamsController pc;
+    private HomeScreenController homeScreenController;
 
-    public Simulacija(int interval, ParamsController pc) {
+    public Simulacija(int interval, HomeScreenController homeScreenController) {
         this.interval = interval;
-        this.pc = pc;
+        this.homeScreenController = homeScreenController;
         //this.setDaemon(true);
     }
 
@@ -35,7 +36,7 @@ public class Simulacija extends Thread {
                 synchronized (this) {
                     for(Sonda s: sonde) {
                         s.promeniParametre();
-                        pc.updateView(s);
+                        homeScreenController.updateView();
                         if(brojMerenja == 2) {
                             s.azurirajBazu();
                         }
