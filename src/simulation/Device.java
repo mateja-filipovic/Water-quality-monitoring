@@ -59,23 +59,23 @@ public class Device {
     }
 
     public double getAvgPH() {
-        return sumPH / (2);
+        return sumPH / (24 * 60 * 2);
     }
 
     public double getAvgNH() {
-        return sumNH / (2);
+        return sumNH / (24 * 60 * 2);
     }
 
     public double getAvgO() {
-        return sumO / (2);
+        return sumO / (24 * 60 * 2);
     }
 
     public double getAvgTur() {
-        return sumTur / (2);
+        return sumTur / (24 * 60 * 2);
     }
 
     public int getAvgORP() {
-        return sumORP / (2);
+        return sumORP / (24 * 60 * 2);
     }
 
     private void updatePH() {

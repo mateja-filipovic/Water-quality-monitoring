@@ -40,12 +40,12 @@ public class Simulation extends Thread {
                     for(Device s: list) {
                         s.updateParameters();
                         homeScreenController.updateView();
-                        if(count == 2) {
+                        if(count == 24 * 60 * 2) {
                             s.updateBase();
                         }
                     }
                 }
-                if(count == 2) {
+                if(count == 24 * 60 * 2) {
                     count = 0;
                 }
             }
