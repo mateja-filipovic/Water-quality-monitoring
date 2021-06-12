@@ -4,6 +4,7 @@ import models.Device;
 import models.User;
 import models.WorkAction;
 import models.WorkApplication;
+import simulacija.Sonda;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public interface DatabaseInterface {
 
     // vratiti 5 listi parametara, svaka lista sadrzi 7 elemenata za 7 dana
     // redom pH, Turbidity, DO, Ammonia, ORP
-    List<List<Integer>> getParams();
+    List<List<Integer>> getParams(Sonda sonda);
 
     // vraca listu svih radnih akcija
     List<WorkAction> getAllWorkActions();

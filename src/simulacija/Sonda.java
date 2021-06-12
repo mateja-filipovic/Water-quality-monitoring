@@ -17,10 +17,19 @@ public class Sonda {
     private double sumaZam = 0;
     private double sumaPH = 0;
     private SQLMetode sql;
+    private double[] phNiz = {6, 6.5, 7, 7.2, 7.3, 6.7};
 
     public Sonda() {
         this.sql = new SQLMetode();
         sql.konektujSe();
+    }
+
+    private void dodajUNiz(double ph) {
+        //TODO
+    }
+
+    public double[] dohvNiz() {
+        return phNiz;
     }
 
     public synchronized void promeniParametre() {
@@ -66,6 +75,7 @@ public class Sonda {
             ph = 0;
         }
         sumaPH += ph;
+        dodajUNiz(ph);
     }
 
     private void promeniO() {
