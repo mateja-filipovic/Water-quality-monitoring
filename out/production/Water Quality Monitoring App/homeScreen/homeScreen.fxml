@@ -79,6 +79,15 @@
                               <Image url="@../assets/table-white.png" />
                           </image>
                       </ImageView>
+                  <Button layoutX="6.0" layoutY="554.0" mnemonicParsing="false" onAction="#startSimulation" styleClass="logout-btn">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/start_btn.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   </children>
               </Pane>
          </left>

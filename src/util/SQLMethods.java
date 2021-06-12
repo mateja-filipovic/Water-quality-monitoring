@@ -1,6 +1,5 @@
 package util;
 
-import DAOUtil.DatabaseInterface;
 import models.User;
 import models.WorkAction;
 import models.WorkApplication;

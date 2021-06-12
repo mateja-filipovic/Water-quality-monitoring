@@ -23,6 +23,7 @@ public class DevicesController implements Initializable, ControllerObserver {
     private HomeScreenController homeScreenController;
 
     public void exitApp(ActionEvent actionEvent) {
+        this.homeScreenController.getSimulation().terminate();
         Platform.exit();
     }
 

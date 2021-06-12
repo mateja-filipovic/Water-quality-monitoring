@@ -30,6 +30,7 @@ public class ParamsController implements Initializable, ControllerObserver {
 
     public void exitApp(){
         Platform.exit();
+        this.homeScreenController.getSimulation().terminate();
     }
 
     @Override
@@ -81,28 +82,33 @@ public class ParamsController implements Initializable, ControllerObserver {
     @Override
     public void setHomeScreenController(HomeScreenController homeScreenController) {
         this.homeScreenController = homeScreenController;
+        viewLoadHelper();
     }
 
     @Override
     public void updateView() {
         Platform.runLater(() -> {
-            currentDevice  = homeScreenController.getCurrentDevice();
-            orpLabel.setText(Integer.toString(currentDevice.getOrp()));
-            doLabel.setText(String.format("%.3f", currentDevice.getO2()));
-            turbidityLabel.setText(String.format("%.3f", currentDevice.getAvgTur()));
-            ammoniaLabel.setText(String.format("%.3f", currentDevice.getNh3()));
-
-            XYChart.Series set1 = new XYChart.Series<>();
-            double[] phArr = currentDevice.getArray();
-            set1.getData().add(new XYChart.Data<>("-5", phArr[0]));
-            set1.getData().add(new XYChart.Data<>("-4", phArr[1]));
-            set1.getData().add(new XYChart.Data<>("-3", phArr[2]));
-            set1.getData().add(new XYChart.Data<>("-2", phArr[3]));
-            set1.getData().add(new XYChart.Data<>("-1", phArr[4]));
-            set1.getData().add(new XYChart.Data<>("0", phArr[5]));
-            phChart.getData().clear();
-            phChart.getData().addAll(set1);
-            phChart.setLegendVisible(false);
+            viewLoadHelper();
         });
+    }
+
+    private void viewLoadHelper(){
+        currentDevice  = homeScreenController.getCurrentDevice();
+        orpLabel.setText(Integer.toString(currentDevice.getOrp()));
+        doLabel.setText(String.format("%.3f", currentDevice.getO2()));
+        turbidityLabel.setText(String.format("%.3f", currentDevice.getAvgTur()));
+        ammoniaLabel.setText(String.format("%.3f", currentDevice.getNh3()));
+
+        XYChart.Series set1 = new XYChart.Series<>();
+        double[] phArr = currentDevice.getArray();
+        set1.getData().add(new XYChart.Data<>("-5", phArr[0]));
+        set1.getData().add(new XYChart.Data<>("-4", phArr[1]));
+        set1.getData().add(new XYChart.Data<>("-3", phArr[2]));
+        set1.getData().add(new XYChart.Data<>("-2", phArr[3]));
+        set1.getData().add(new XYChart.Data<>("-1", phArr[4]));
+        set1.getData().add(new XYChart.Data<>("0", phArr[5]));
+        phChart.getData().clear();
+        phChart.getData().addAll(set1);
+        phChart.setLegendVisible(false);
     }
 }

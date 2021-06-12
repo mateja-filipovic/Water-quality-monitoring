@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,28 +41,20 @@ public class ActionsController implements Initializable, ControllerObserver {
     private List<WorkApplication> workApplicationList;
 
     public void exitApp(ActionEvent actionEvent) {
+        this.homeScreenController.getSimulation().terminate();
         Platform.exit();
     }
 
     private ObservableList<User> userList = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*
-        String[] dummyData = {"ocistimo dunav", "ocistimo drinu", "zelena morava", "ocistimo dunav", "ocistimo drinu", "zelena morava", "ocistimo dunav", "ocistimo drinu", "zelena morava"};
-        actionListview.getItems().addAll(dummyData);
         actionListview.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                currentAction = actionListview.getSelectionModel().getSelectedItem();
-                //todo ovde!
+                currentAction = workActionMap.get(actionListview.getSelectionModel().getSelectedItem());
+                updateView();
             }
         });
-
-        userList.add(new User("Mateja", "Filipovic", "mata", "admin", "email@gmail.com", 1));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
-        contactColumn.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-        applicationsTableview.setItems(userList);*/
 
     }
 
@@ -70,6 +63,7 @@ public class ActionsController implements Initializable, ControllerObserver {
         String location = locationField.getText();
         String time = timeField.getText();
         sqlMethods.createWorkAction(name, location, time, this.homeScreenController.getCurrentUser().getId());
+        updateView();
     }
 
     @Override
@@ -80,6 +74,9 @@ public class ActionsController implements Initializable, ControllerObserver {
 
     @Override
     public void updateView() {
+
+        actionListview.getItems().clear();
+
         List<WorkAction> temp = sqlMethods.getAllWorkActions();
 
         for(WorkAction workAction : temp)
@@ -93,6 +90,10 @@ public class ActionsController implements Initializable, ControllerObserver {
         nameColumn.setCellValueFactory(new PropertyValueFactory<WorkApplication, String>("name"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<WorkApplication, String>("lastName"));
         contactColumn.setCellValueFactory(new PropertyValueFactory<WorkApplication, String>("email"));
-        applicationsTableview.getItems().addAll(workApplicationList);
+        Platform.runLater(() -> {
+            ObservableList<WorkApplication> comboList = applicationsTableview.getItems();
+            comboList.setAll(FXCollections.observableArrayList(workApplicationList));
+        });
+        //applicationsTableview.getItems().addAll(workApplicationList);
     }
 }
