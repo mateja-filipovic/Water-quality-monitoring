@@ -1,4 +1,4 @@
-package DAOUtil;
+package util;
 
 import models.User;
 import models.WorkAction;

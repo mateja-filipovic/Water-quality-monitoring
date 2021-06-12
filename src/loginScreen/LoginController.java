@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import models.User;
+import simulation.Simulation;
 import util.SQLMethods;
 
 
@@ -27,7 +28,11 @@ public class LoginController {
 
     @FXML public PasswordField passwordField;
 
+    private Simulation simulation;
+
     public void exitApp(){
+        if(simulation != null)
+            simulation.terminate();
         Platform.exit();
     }
 
@@ -48,12 +53,18 @@ public class LoginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/homeScreen/homeScreen.fxml"));
         Parent paramsView = loader.load();
 
+
         HomeScreenController controller = loader.getController();
         controller.setCurrentUser(currentUser);
+        controller.setLoginController(this);
 
         Scene newScene = new Scene(paramsView);
         Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
         window.setScene(newScene);
         window.show();
+    }
+
+    public void setSimulation(Simulation simulation) {
+        this.simulation = simulation;
     }
 }

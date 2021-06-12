@@ -1,6 +1,5 @@
 package analyticsScreen;
 
-import DAOUtil.DatabaseInterface;
 import homeScreen.HomeScreenController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import util.ControllerObserver;
 import util.SQLMethods;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -47,6 +45,7 @@ public class AnalyticsController implements Initializable, ControllerObserver {
     private BarChart<?, ?>[] allCharts = {phChart, turbidityChart, doChart, ammoniaChart, orpChart};
 
     public void exitApp(){
+        this.homeScreenController.getSimulation().terminate();
         Platform.exit();
     }
 

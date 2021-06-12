@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import loginScreen.LoginController;
 import models.User;
 import simulation.Device;
 import simulation.Simulation;
@@ -41,6 +42,13 @@ public class HomeScreenController implements Initializable {
     ControllerObserver currentController;
     private Simulation simulation;
     private Device currentDevice;
+
+    public void setLoginController(LoginController loginController) {
+        this.loginController = loginController;
+        loginController.setSimulation(this.simulation);
+    }
+
+    private LoginController loginController;
 
 
     @Override
@@ -152,5 +160,9 @@ public class HomeScreenController implements Initializable {
 
     public Simulation getSimulation() {
         return simulation;
+    }
+
+    public void startSimulation(ActionEvent event) {
+        this.simulation.start();
     }
 }
