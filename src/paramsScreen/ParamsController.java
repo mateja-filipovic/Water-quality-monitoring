@@ -46,13 +46,13 @@ public class ParamsController implements Initializable {
 
         // dummy chart values
         XYChart.Series set1 = new XYChart.Series<>();
-        set1.getData().add(new XYChart.Data<>("0", 7));
-        set1.getData().add(new XYChart.Data<>("1", 5));
-        set1.getData().add(new XYChart.Data<>("2", 11));
-        set1.getData().add(new XYChart.Data<>("3", 3));
-        set1.getData().add(new XYChart.Data<>("4", 8));
-        set1.getData().add(new XYChart.Data<>("5", 7.5));
-        set1.getData().add(new XYChart.Data<>("6", 4));
+        double[] phArr = sonda.dohvNiz();
+        set1.getData().add(new XYChart.Data<>("-5", phArr[0]));
+        set1.getData().add(new XYChart.Data<>("-4", phArr[1]));
+        set1.getData().add(new XYChart.Data<>("-3", phArr[2]));
+        set1.getData().add(new XYChart.Data<>("-2", phArr[3]));
+        set1.getData().add(new XYChart.Data<>("-1", phArr[4]));
+        set1.getData().add(new XYChart.Data<>("0", phArr[5]));
         // dummy chart values
 
         phChart.getData().addAll(set1);
