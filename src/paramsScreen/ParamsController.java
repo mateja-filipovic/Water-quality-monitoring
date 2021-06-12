@@ -8,6 +8,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import simulacija.Sonda;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ public class ParamsController implements Initializable {
     @FXML public BarChart<?, ?> phChart;
     @FXML public CategoryAxis phChartX;
     @FXML public NumberAxis phChartY;
+    private Sonda sonda;
 
     public void exitApp(){
         Platform.exit();
@@ -35,11 +37,12 @@ public class ParamsController implements Initializable {
         double turbidity = 3.3;
         double orp = 1.1;
         // dummy values
+        sonda = new Sonda();
 
-        orpLabel.setText(Double.toString(orp));
-        doLabel.setText(Double.toString(disslovedoxy));
-        turbidityLabel.setText(Double.toString(turbidity));
-        ammoniaLabel.setText(Double.toString(amonia));
+        orpLabel.setText(Integer.toString(sonda.getOrp()));
+        doLabel.setText(Double.toString(sonda.getO2()));
+        turbidityLabel.setText(Double.toString(sonda.getZamucenost()));
+        ammoniaLabel.setText(Double.toString(sonda.getNh3()));
 
         // dummy chart values
         XYChart.Series set1 = new XYChart.Series<>();

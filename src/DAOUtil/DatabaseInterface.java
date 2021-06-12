@@ -12,6 +12,7 @@ public interface DatabaseInterface {
     // klase su opisane u paketu models
 
     // vratiti null ako user ne postoji, ili je pogresan tip
+    //1 - admin, 0 - obican
     User getUserFromDB(String username, String password, int type);
 
     // vratiti sve uredjaje

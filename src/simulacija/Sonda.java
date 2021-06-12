@@ -107,4 +107,43 @@ public class Sonda {
         restartuj();
     }
 
+    public double getNh3() {
+        return nh3;
+    }
+
+    public void setNh3(double nh3) {
+        this.nh3 = nh3;
+    }
+
+    public int getOrp() {
+        return orp;
+    }
+
+    public void setOrp(int orp) {
+        this.orp = orp;
+    }
+
+    public double getO2() {
+        return o2;
+    }
+
+    public void setO2(double o2) {
+        this.o2 = o2;
+    }
+
+    public double getZamucenost() {
+        return zamucenost;
+    }
+
+    public void setZamucenost(double zamucenost) {
+        this.zamucenost = zamucenost;
+    }
+
+    public double getPh() {
+        return ph;
+    }
+
+    public void setPh(double ph) {
+        this.ph = ph;
+    }
 }
