@@ -172,4 +172,9 @@ public class Device {
     public void setPh(double ph) {
         this.ph = ph;
     }
+
+    @Override
+    public String toString() {
+        return location;
+    }
 }

@@ -25,4 +25,8 @@ public class WorkApplication {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getName(){return this.user.getName(); }
+    public String getLastName(){ return this.user.getLastName();}
+    public String getEmail(){ return this.user.getEmail(); }
 }

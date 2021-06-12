@@ -1,5 +1,6 @@
 package actionsScreen;
 
+import homeScreen.HomeScreenController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -14,20 +15,29 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.User;
+import models.WorkAction;
+import models.WorkApplication;
+import util.ControllerObserver;
+import util.SQLMethods;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
-public class ActionsController implements Initializable {
+public class ActionsController implements Initializable, ControllerObserver {
     @FXML public TextField nameField;
     @FXML public TextField locationField;
     @FXML public TextField timeField;
     @FXML public ListView<String> actionListview;
-    @FXML public TableView<User> applicationsTableview;
-    @FXML public TableColumn<User, String> nameColumn;
-    @FXML public TableColumn<User, String> lastNameColumn;
-    @FXML public TableColumn<User, String> contactColumn;
-    private String currentAction;
+    @FXML public TableView<WorkApplication> applicationsTableview;
+    @FXML public TableColumn<WorkApplication, String> nameColumn;
+    @FXML public TableColumn<WorkApplication, String> lastNameColumn;
+    @FXML public TableColumn<WorkApplication, String> contactColumn;
+    private WorkAction currentAction;
+    private HomeScreenController homeScreenController;
+    private SQLMethods sqlMethods = new SQLMethods();
+
+    private Map<String, WorkAction> workActionMap = new HashMap<>();
+    private List<WorkApplication> workApplicationList;
 
     public void exitApp(ActionEvent actionEvent) {
         Platform.exit();
@@ -36,6 +46,7 @@ public class ActionsController implements Initializable {
     private ObservableList<User> userList = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /*
         String[] dummyData = {"ocistimo dunav", "ocistimo drinu", "zelena morava", "ocistimo dunav", "ocistimo drinu", "zelena morava", "ocistimo dunav", "ocistimo drinu", "zelena morava"};
         actionListview.getItems().addAll(dummyData);
         actionListview.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -50,13 +61,38 @@ public class ActionsController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
         contactColumn.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-        applicationsTableview.setItems(userList);
+        applicationsTableview.setItems(userList);*/
+
     }
 
     public void createEntry(ActionEvent event) {
         String name = nameField.getText();
         String location = locationField.getText();
         String time = timeField.getText();
-        //radi povezivanje
+        sqlMethods.createWorkAction(name, location, time, this.homeScreenController.getCurrentUser().getId());
+    }
+
+    @Override
+    public void setHomeScreenController(HomeScreenController homeScreenController) {
+        this.homeScreenController = homeScreenController;
+        updateView();
+    }
+
+    @Override
+    public void updateView() {
+        List<WorkAction> temp = sqlMethods.getAllWorkActions();
+
+        for(WorkAction workAction : temp)
+            workActionMap.put(workAction.getName(), workAction);
+
+        actionListview.getItems().addAll(workActionMap.keySet());
+        if(currentAction == null)
+            currentAction = temp.get(0);
+
+        workApplicationList = sqlMethods.getWorkApplications(currentAction.getId());
+        nameColumn.setCellValueFactory(new PropertyValueFactory<WorkApplication, String>("name"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<WorkApplication, String>("lastName"));
+        contactColumn.setCellValueFactory(new PropertyValueFactory<WorkApplication, String>("email"));
+        applicationsTableview.getItems().addAll(workApplicationList);
     }
 }
