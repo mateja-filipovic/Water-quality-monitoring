@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         SQLMetode sql = new SQLMetode();
         sql.konektujSe();
-        Sonda sonda = new Sonda(sql);
+        Sonda sonda = new Sonda();
         Reka reka = new Reka(10);
         System.out.println("Radim nesto");
         reka.dodajSondu(sonda);

@@ -18,7 +18,7 @@ public class Sonda {
     private double sumaPH = 0;
     private SQLMetode sql;
 
-    public Sonda(SQLMetode sql) {
+    public Sonda() {
         this.sql = new SQLMetode();
         sql.konektujSe();
     }
