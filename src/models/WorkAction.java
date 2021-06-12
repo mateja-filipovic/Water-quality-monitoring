@@ -6,16 +6,16 @@ public class WorkAction {
     private String time;
     private String name;
     private int creatorId;
-    private int locationId;
+    private String location;
 
     public WorkAction(){}
 
-    public WorkAction(int id, String time, String name, int creatorId, int locationId) {
+    public WorkAction(int id, String time, String name, int creatorId, String location) {
         this.id = id;
         this.time = time;
         this.name = name;
         this.creatorId = creatorId;
-        this.locationId = locationId;
+        this.location = location;
     }
 
     public int getId() {
@@ -50,11 +50,8 @@ public class WorkAction {
         this.creatorId = creatorId;
     }
 
-    public int getLocationId() {
-        return locationId;
-    }
+    public void setLocation(String location) { this.location = location; }
 
-    public void setLocationId(int locationId) {
-        this.locationId = locationId;
-    }
+    public String getLocation() { return location; }
+
 }

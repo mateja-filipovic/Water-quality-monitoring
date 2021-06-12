@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.User;
-import simulacija.Sonda;
+import simulation.Device;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +35,7 @@ public class HomeScreenController implements Initializable {
     private Map<Integer, Button> buttonSelectors;
     private int selected = 0; // 0 params, 1 devices, 2 analytics, 3 actions
     private User currentUser;
-    private Sonda sonda;
+    private Device sonda;
 
 
     @Override

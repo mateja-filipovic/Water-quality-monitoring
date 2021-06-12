@@ -1,28 +1,24 @@
 package util;
 
 import DAOUtil.DatabaseInterface;
-import models.Device;
 import models.User;
 import models.WorkAction;
 import models.WorkApplication;
-import simulacija.Sonda;
+import simulation.Device;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SQLMetode implements DatabaseInterface {
 
-    private Connection konekcija = null;
+    private Connection conn = null;
 
-    public void konektujSe() {
-        diskonektujSe();
+    public void connect() {
+        disconnect();
         try {
             Class.forName("org.sqlite.JDBC");
-            konekcija = DriverManager.getConnection("jdbc:sqlite:swan.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:swan.db");
             System.out.println("Uspesna konekcija!");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -31,11 +27,11 @@ public class SQLMetode implements DatabaseInterface {
         }
     }
 
-    public void diskonektujSe() {
-        if(konekcija != null) {
+    public void disconnect() {
+        if(conn != null) {
             try {
-                konekcija.close();
-                konekcija = null;
+                conn.close();
+                conn = null;
                 System.out.println("Uspesna diskonekcija!");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -43,11 +39,10 @@ public class SQLMetode implements DatabaseInterface {
         }
     }
 
-    public void unesiVrednosti(int id, double dohvProsekNH, double dohvProsekO, int dohvProsekORP, double dohvProsekPH, double dohvProsekZam) {
-        System.out.println("Ubacujem");
-        String sql = "INSERT INTO Parametri(IdUre, NH3, O2, ORP, PH, Zamucenost) VALUES (" + id + ", " + dohvProsekNH + ", " +
-                dohvProsekO + ", " + dohvProsekORP + ", " + dohvProsekPH + ", " + dohvProsekZam + ")";
-        try(Statement stmt = konekcija.createStatement()) {
+    public void insertParameters(int id, double avgNH, double avgO, int avgORP, double avgPH, double avgTur) {
+        String sql = "INSERT INTO Parametri(IdUre, NH3, O2, ORP, PH, Zamucenost) VALUES (" + id + ", " + avgNH + ", " +
+                avgO + ", " + avgORP + ", " + avgPH + ", " + avgTur + ")";
+        try(Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -56,22 +51,53 @@ public class SQLMetode implements DatabaseInterface {
 
     @Override
     public User getUserFromDB(String username, String password, int type) {
-        return null;
+        int id = 0;
+        String name = "";
+        String lastName = "";
+        String email = "";
+        String sql = "SELECT IdKor, Ime, Prezime, Email" +
+                "FROM Korisnik " +
+                "WHERE Username = ? AND Lozinka = ? AND Tip = ?";
+        try(PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setInt(3, type);
+            try(ResultSet rs = ps.executeQuery()) {
+                id = rs.getInt("IdKor");
+                name = rs.getString("Ime");
+                lastName = rs.getString("Prezime");
+                email = rs.getString("Email");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return new User(id, name, lastName, username, password, email, type);
     }
 
     @Override
-    public List<Device> getAllDevices() {
-        return null;
-    }
+    public List<List<Double>> getParams(Device sonda) {
 
-    @Override
-    public List<List<Integer>> getParams(Sonda sonda) {
         return null;
     }
 
     @Override
     public List<WorkAction> getAllWorkActions() {
-        return null;
+        List<WorkAction> list = new ArrayList<>();
+        String sql = "SELECT IdAkc, Vreme, Naziv, Mesto, IdAdm FROM Akcija";
+        try(Statement stmt = conn.createStatement()) {
+            try(ResultSet rs = stmt.executeQuery(sql);) {
+                while(rs.next()) {
+                    list.add(new WorkAction(rs.getInt("IdAkc"),
+                                rs.getString("Vreme"),
+                                rs.getString("Naziv"),
+                                rs.getInt("IdAdm"),
+                                rs.getString("Mesto")));
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     @Override
@@ -83,6 +109,12 @@ public class SQLMetode implements DatabaseInterface {
 
     @Override
     public void createWorkAction(String name, String location, String time, int idAdmin) {
-
+        String sql = "INSERT INTO Akcija(Naziv, Mesto, Vreme, IdAdm) VALUES" +
+                "(" + name + ", " +  location + ", " + time + ", " + idAdmin + ")";
+        try(Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

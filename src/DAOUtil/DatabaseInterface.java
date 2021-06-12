@@ -1,10 +1,9 @@
 package DAOUtil;
 
-import models.Device;
 import models.User;
 import models.WorkAction;
 import models.WorkApplication;
-import simulacija.Sonda;
+import simulation.Device;
 
 import java.util.List;
 
@@ -17,11 +16,11 @@ public interface DatabaseInterface {
     User getUserFromDB(String username, String password, int type);
 
     // vratiti sve uredjaje
-    List<Device> getAllDevices();
+    //List<models.Device> getAllDevices();
 
     // vratiti 5 listi parametara, svaka lista sadrzi 5 elemenata za 5 dana
     // redom pH, Turbidity, DO, Ammonia, ORP
-    List<List<Integer>> getParams(Sonda sonda);
+    List<List<Double>> getParams(Device sonda);
 
     // vraca listu svih radnih akcija
     List<WorkAction> getAllWorkActions();
