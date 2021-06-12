@@ -19,7 +19,7 @@ public interface DatabaseInterface {
     // vratiti sve uredjaje
     List<Device> getAllDevices();
 
-    // vratiti 5 listi parametara, svaka lista sadrzi 7 elemenata za 7 dana
+    // vratiti 5 listi parametara, svaka lista sadrzi 5 elemenata za 5 dana
     // redom pH, Turbidity, DO, Ammonia, ORP
     List<List<Integer>> getParams(Sonda sonda);
 
