@@ -42,6 +42,7 @@ public class HomeScreenController implements Initializable {
     ControllerObserver currentController;
     private Simulation simulation;
     private Device currentDevice;
+    private boolean simulationStarted = false;
 
     public void setLoginController(LoginController loginController) {
         this.loginController = loginController;
@@ -114,7 +115,6 @@ public class HomeScreenController implements Initializable {
 
     public void onClickApplications(){
         handleMenuClick(3, "applicationsScreen");
-        //simulation.start();
     }
 
     private void handleMenuClick(int mySelector, String fileName){
@@ -163,6 +163,9 @@ public class HomeScreenController implements Initializable {
     }
 
     public void startSimulation(ActionEvent event) {
+        if(simulationStarted)
+            return;
+        simulationStarted = true;
         this.simulation.start();
     }
 }

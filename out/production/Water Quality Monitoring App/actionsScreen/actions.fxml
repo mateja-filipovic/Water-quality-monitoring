@@ -57,7 +57,7 @@
       </Pane>
       <Pane layoutX="442.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ListView fx:id="actionListview" layoutY="30.0" prefHeight="171.0" prefWidth="200.0" styleClass="bottom-borders" />
+            <ListView fx:id="actionListview" layoutY="30.0" prefHeight="137.0" prefWidth="200.0" />
             <Pane prefHeight="30.0" prefWidth="200.0" styleClass="label-background">
                <children>
                   <Label layoutX="62.0" layoutY="5.0" text="Action List" textFill="WHITE">
@@ -67,6 +67,15 @@
                   </Label>
                </children>
             </Pane>
+            <Button layoutY="163.0" mnemonicParsing="false" onAction="#changeSelection" prefHeight="37.0" prefWidth="200.0" text="SELECT" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="create-button" />
+                  <String fx:value="bottom-borders" />
+               </styleClass>
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
          <styleClass>
             <String fx:value="param-container" />
