@@ -17,8 +17,6 @@ public class SQLMetode implements DatabaseInterface {
 
     private Connection konekcija = null;
 
-
-
     public void konektujSe() {
         diskonektujSe();
         try {

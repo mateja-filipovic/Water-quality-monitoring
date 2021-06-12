@@ -1,16 +1,20 @@
 package simulacija;
 
+import paramsScreen.ParamsController;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reka extends Thread {
+public class Simulacija extends Thread {
 
     private int interval = 0;
     private List<Sonda> sonde = new ArrayList<>();
     private int brojMerenja = 0;
+    private ParamsController pc;
 
-    public Reka(int interval) {
+    public Simulacija(int interval, ParamsController pc) {
         this.interval = interval;
+        this.pc = pc;
         //this.setDaemon(true);
     }
 
@@ -31,6 +35,7 @@ public class Reka extends Thread {
                 synchronized (this) {
                     for(Sonda s: sonde) {
                         s.promeniParametre();
+                        pc.updateView(s);
                         if(brojMerenja == 2) {
                             s.azurirajBazu();
                         }
