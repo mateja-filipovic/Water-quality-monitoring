@@ -84,8 +84,8 @@ public class SQLMethods implements DatabaseInterface {
             throwables.printStackTrace();
         }
         List<List<Double>> allValues = new ArrayList<>();
-        String sql2 = "SELECT PH, Zamucenost, O2, NH3, ORP FROM Parametri " +
-                "WHERE IdUre = " + sonda.getId() + "OFFSET " + cnt + " - 5";
+        String sql2 = "SELECT IdPar, PH, Zamucenost, O2, NH3, ORP FROM Parametri " +
+                "WHERE IdUre = " + sonda.getId() + "ORDER BY IdPar OFFSET " + cnt + " - 5";
         try(Statement stmt = conn.createStatement()) {
             try(ResultSet rs = stmt.executeQuery(sql2)) {
                 while(rs.next()) {
@@ -107,7 +107,7 @@ public class SQLMethods implements DatabaseInterface {
     @Override
     public List<WorkAction> getAllWorkActions() {
         List<WorkAction> list = new ArrayList<>();
-        String sql = "SELECT IdAkc, Vreme, Naziv, Mesto, IdAdm FROM Akcija";
+        String sql = "SELECT IdAkc, Vreme, Naziv, Mesto, IdAdm FROM Akcija ORDER BY IdAkc";
         try(Statement stmt = conn.createStatement()) {
             try(ResultSet rs = stmt.executeQuery(sql);) {
                 while(rs.next()) {
@@ -130,7 +130,8 @@ public class SQLMethods implements DatabaseInterface {
         int idP = 0, idK = 0, type = 0;
         String name = "", lastName = "", username = "", password = "", email = "";
         String sql = "SELECT P.IdPri, K.IdKor, K.Ime, K.Prezime, K.Username, K.Lozinka, K.Email, K.Tip" +
-                "FROM Prijava P INNER JOIN Korisnik K USING(IdKor) WHERE K.IdAkc = " + actionId;
+                "FROM Prijava P INNER JOIN Korisnik K USING(IdKor) WHERE K.IdAkc = " + actionId +
+                "ORDER BY P.IdPri";
         try(Statement stmt = conn.createStatement()) {
             try(ResultSet rs = stmt.executeQuery(sql);) {
                 while(rs.next()) {
