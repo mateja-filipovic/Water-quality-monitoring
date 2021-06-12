@@ -19,7 +19,6 @@ public class SQLMethods implements DatabaseInterface {
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:swan.db");
-            System.out.println("Uspesna konekcija!");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
@@ -32,7 +31,6 @@ public class SQLMethods implements DatabaseInterface {
             try {
                 conn.close();
                 conn = null;
-                System.out.println("Uspesna diskonekcija!");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -129,7 +127,27 @@ public class SQLMethods implements DatabaseInterface {
     @Override
     public List<WorkApplication> getWorkApplications(int actionId) {
         List<WorkApplication> list = new ArrayList<>();
-
+        int idP = 0, idK = 0, type = 0;
+        String name = "", lastName = "", username = "", password = "", email = "";
+        String sql = "SELECT P.IdPri, K.IdKor, K.Ime, K.Prezime, K.Username, K.Lozinka, K.Email, K.Tip" +
+                "FROM Prijava P INNER JOIN Korisnik K USING(IdKor) WHERE K.IdAkc = " + actionId;
+        try(Statement stmt = conn.createStatement()) {
+            try(ResultSet rs = stmt.executeQuery(sql);) {
+                while(rs.next()) {
+                    idP = rs.getInt("P.IdPri");
+                    idK = rs.getInt("K.IdKor");
+                    type = rs.getInt("K.Tip");
+                    name = rs.getString("K.Ime");
+                    lastName = rs.getString("K.Prezime");
+                    username = rs.getString("K.Username");
+                    password = rs.getString("K.Lozinka");
+                    email = rs.getString("K.Email");
+                    list.add(new WorkApplication(idP, new User(idK, name, lastName, username, password, email, type)));
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return list;
     }
 
