@@ -48,14 +48,12 @@ public class ActionsController implements Initializable, ControllerObserver {
     private ObservableList<User> userList = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        actionListview.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                currentAction = workActionMap.get(actionListview.getSelectionModel().getSelectedItem());
-                updateView();
-            }
-        });
+        //todo
+    }
 
+    public void changeSelection(ActionEvent e){
+        currentAction = workActionMap.get(actionListview.getSelectionModel().getSelectedItem());
+        updateView();
     }
 
     public void createEntry(ActionEvent event) {
