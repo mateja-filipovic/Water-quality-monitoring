@@ -9,6 +9,8 @@ public class SQLMetode {
 
     private Connection konekcija = null;
 
+
+
     public void konektujSe() {
         diskonektujSe();
         try {

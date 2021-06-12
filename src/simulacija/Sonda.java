@@ -19,7 +19,8 @@ public class Sonda {
     private SQLMetode sql;
 
     public Sonda(SQLMetode sql) {
-        this.sql = sql;
+        this.sql = new SQLMetode();
+        sql.konektujSe();
     }
 
     public synchronized void promeniParametre() {
@@ -50,9 +51,7 @@ public class Sonda {
         return sumaO / (2);
     }
 
-    public double dohvProsekZam() {
-        return sumaZam / (2);
-    }
+    public double dohvProsekZam() { return sumaZam / (2); }
 
     public int dohvProsekORP() {
         return sumaORP / (2);
