@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import models.User;
+import util.SQLMethods;
 
 
 import java.io.IOException;
@@ -32,8 +33,8 @@ public class LoginController {
 
     public void login(ActionEvent event) throws IOException {
 
-        /*
-        User currentUser = get user from database;
+
+        User currentUser = new SQLMethods().getUserFromDB(usernameField.getText(), passwordField.getText(), 1);
         if(currentUser == null){
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.initStyle(StageStyle.UNDECORATED);
@@ -43,17 +44,12 @@ public class LoginController {
             errorAlert.showAndWait();
             return;
         }
-        */
-
-        // dummy user
-        User user = new User("Joe", "Doe", "joedoe", "password", "email@gmail.com", 1);
-        // dummy user
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/homeScreen/homeScreen.fxml"));
         Parent paramsView = loader.load();
 
         HomeScreenController controller = loader.getController();
-        controller.setCurrentUser(user);
+        controller.setCurrentUser(currentUser);
 
         Scene newScene = new Scene(paramsView);
         Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());

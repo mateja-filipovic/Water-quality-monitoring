@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.User;
 import simulation.Device;
+import simulation.Simulation;
+import util.ControllerObserver;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +37,10 @@ public class HomeScreenController implements Initializable {
     private Map<Integer, Button> buttonSelectors;
     private int selected = 0; // 0 params, 1 devices, 2 analytics, 3 actions
     private User currentUser;
-    private Device sonda;
+    private Device device;
+    ControllerObserver currentController;
+    private Simulation simulation;
+    private Device currentDevice;
 
 
     @Override
@@ -53,6 +58,10 @@ public class HomeScreenController implements Initializable {
         buttonSelectors.put(2, analyticsButton);
         buttonSelectors.put(3, actionsButton);
 
+        simulation = new Simulation(5, this);
+        currentDevice = new Device(1, 10, "Arandjelovac");
+        simulation.addDevice(currentDevice);
+
 
         Pane view = getPage("paramsScreen");
         mainPane.setCenter(view);
@@ -65,7 +74,10 @@ public class HomeScreenController implements Initializable {
     private Pane getPage(String fileName) {
         Pane view = null;
         try {
-            view = FXMLLoader.load(getClass().getResource(screens.get(fileName)));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(screens.get(fileName)));
+            view = loader.load();
+            currentController = (ControllerObserver) loader.getController();
+            currentController.setHomeScreenController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,6 +106,7 @@ public class HomeScreenController implements Initializable {
 
     public void onClickApplications(){
         handleMenuClick(3, "applicationsScreen");
+        //simulation.start();
     }
 
     private void handleMenuClick(int mySelector, String fileName){
@@ -124,5 +137,20 @@ public class HomeScreenController implements Initializable {
         displayUserInfo();
     }
 
-    public void updateView(){}
+    public void updateView(){
+        if(selected == 0)
+            currentController.updateView();
+    }
+
+    public Device getCurrentDevice() {
+        return currentDevice;
+    }
+
+    public void setCurrentDevice(Device currentDevice) {
+        this.currentDevice = currentDevice;
+    }
+
+    public Simulation getSimulation() {
+        return simulation;
+    }
 }

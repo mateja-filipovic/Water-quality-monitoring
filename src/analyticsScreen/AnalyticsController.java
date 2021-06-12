@@ -1,5 +1,7 @@
 package analyticsScreen;
 
+import DAOUtil.DatabaseInterface;
+import homeScreen.HomeScreenController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,11 +9,15 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import util.ControllerObserver;
+import util.SQLMethods;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class AnalyticsController implements Initializable {
+public class AnalyticsController implements Initializable, ControllerObserver {
 
     @FXML public BarChart<?, ?> phChart;
     @FXML public CategoryAxis phChartX;
@@ -29,9 +35,16 @@ public class AnalyticsController implements Initializable {
     @FXML public CategoryAxis orpChartX;
     @FXML public NumberAxis orpChartY;
 
-    @FXML public BarChart<?, ?> ammoniaChart;
+    @FXML
+    public BarChart<?, ?> ammoniaChart;
     @FXML public CategoryAxis ammoniaChartX;
     @FXML public NumberAxis ammoniaChartY;
+
+    private HomeScreenController homeScreenController;
+    private SQLMethods dbController;
+    private List<List<Double>> paramsMatrix;
+
+    private BarChart<?, ?>[] allCharts = {phChart, turbidityChart, doChart, ammoniaChart, orpChart};
 
     public void exitApp(){
         Platform.exit();
@@ -39,6 +52,7 @@ public class AnalyticsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /*
         XYChart.Series set1 = new XYChart.Series<>();
         set1.getData().add(new XYChart.Data<>("0", 7));
         set1.getData().add(new XYChart.Data<>("1", 5));
@@ -51,6 +65,40 @@ public class AnalyticsController implements Initializable {
         set1.getData().add(new XYChart.Data<>("8", 9));
         set1.getData().add(new XYChart.Data<>("9", 8));
         doChart.getData().addAll(set1);
-        doChart.setLegendVisible(false);
+        doChart.setLegendVisible(false);*/
+
+    }
+
+    @Override
+    public void setHomeScreenController(HomeScreenController homeScreenController) {
+        this.homeScreenController = homeScreenController;
+        updateView();
+    }
+
+    @Override
+    public void updateView() {
+        XYChart.Series[] sets = new XYChart.Series[5];
+        for(int i = 0; i < 5; i++)
+            sets[i] = new XYChart.Series<>();
+
+        dbController = new SQLMethods();
+        paramsMatrix = dbController.getParams(this.homeScreenController.getCurrentDevice());
+
+        int index = 0;
+        for(List<Double> wrapper : paramsMatrix){
+            int currentParam = 0;
+            for(Double value : wrapper){
+                sets[currentParam].getData().add(new XYChart.Data<>(Integer.toString(index - 4), value));
+                currentParam++;
+            }
+            index++;
+        }
+
+        BarChart<?, ?>[] allCharts = {phChart, turbidityChart, doChart, ammoniaChart, orpChart};
+        for(int i = 0; i < 5; i++){
+            allCharts[i].getData().addAll(sets[i]);
+            allCharts[i].setLegendVisible(false);
+        }
+
     }
 }
