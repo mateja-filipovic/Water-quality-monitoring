@@ -25,7 +25,10 @@ public class Sonda {
     }
 
     private void dodajUNiz(double ph) {
-        //TODO
+        for(int i = 0; i < 5; i++) {
+            phNiz[i] = phNiz[i + 1];
+        }
+        phNiz[5] = ph;
     }
 
     public double[] dohvNiz() {
