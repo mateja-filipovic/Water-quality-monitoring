@@ -1,6 +1,6 @@
 package simulation;
 
-import util.SQLMetode;
+import util.SQLMethods;
 
 public class Device {
 
@@ -16,7 +16,7 @@ public class Device {
     private double sumO = 0;
     private double sumTur = 0;
     private double sumPH = 0;
-    private SQLMetode sql;
+    private SQLMethods sql;
     private double[] phArray = {6, 6.5, 7, 7.2, 7.3, 6.7};
     private int age = 0;
     private String location;
@@ -25,7 +25,7 @@ public class Device {
         this.id = id;
         this.age = age;
         this.location = location;
-        this.sql = new SQLMetode();
+        this.sql = new SQLMethods();
         sql.connect();
     }
 

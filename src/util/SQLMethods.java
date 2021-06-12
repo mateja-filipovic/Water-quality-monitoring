@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SQLMetode implements DatabaseInterface {
+public class SQLMethods implements DatabaseInterface {
 
     private Connection conn = null;
 
@@ -76,8 +76,34 @@ public class SQLMetode implements DatabaseInterface {
 
     @Override
     public List<List<Double>> getParams(Device sonda) {
-
-        return null;
+        int cnt = 0;
+        String sql1 = "SELECT COUNT(*) FROM Parametri WHERE IdUre = " + sonda.getId();
+        try(Statement stmt = conn.createStatement()) {
+            try(ResultSet rs = stmt.executeQuery(sql1);) {
+                cnt = rs.getInt(1);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        List<List<Double>> allValues = new ArrayList<>();
+        String sql2 = "SELECT PH, Zamucenost, O2, NH3, ORP FROM Parametri " +
+                "WHERE IdUre = " + sonda.getId() + "OFFSET " + cnt + " - 5";
+        try(Statement stmt = conn.createStatement()) {
+            try(ResultSet rs = stmt.executeQuery(sql2)) {
+                while(rs.next()) {
+                    List<Double> particularValues = new ArrayList<>();
+                    particularValues.add(rs.getDouble("PH"));
+                    particularValues.add(rs.getDouble("Zamucenost"));
+                    particularValues.add(rs.getDouble("O2"));
+                    particularValues.add(rs.getDouble("NH3"));
+                    particularValues.add(rs.getDouble("ORP"));
+                    allValues.add(particularValues);
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return allValues;
     }
 
     @Override
