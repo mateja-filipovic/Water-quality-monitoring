@@ -10,11 +10,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.StageStyle;
 import models.User;
 import models.WorkAction;
 import models.WorkApplication;
@@ -60,8 +58,21 @@ public class ActionsController implements Initializable, ControllerObserver {
         String name = nameField.getText();
         String location = locationField.getText();
         String time = timeField.getText();
+        if(name.equals("") || location.equals("") || time.equals("")){
+            errorAlert();
+            return;
+        }
         sqlMethods.createWorkAction(name, location, time, this.homeScreenController.getCurrentUser().getId());
         updateView();
+    }
+
+    private void errorAlert() {
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.initStyle(StageStyle.UNDECORATED);
+        errorAlert.setHeaderText(null);
+        errorAlert.setGraphic(null);
+        errorAlert.setContentText("All fields required");
+        errorAlert.showAndWait();
     }
 
     @Override
