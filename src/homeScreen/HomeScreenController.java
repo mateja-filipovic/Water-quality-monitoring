@@ -129,6 +129,7 @@ public class HomeScreenController implements Initializable {
 
 
     public void logOut(ActionEvent actionEvent) throws IOException {
+        simulation.terminate();
         Parent paramsView = FXMLLoader.load(getClass().getResource("/loginScreen/login.fxml"));
         Scene newScene = new Scene(paramsView);
         Stage window = (Stage)(((Node)actionEvent.getSource()).getScene().getWindow());

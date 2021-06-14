@@ -31,5 +31,7 @@ public interface DatabaseInterface {
     // dodavanje akcije u bazu
     void createWorkAction(String name, String location, String time, int idAdmin);
 
+    List<WorkAction> getAllWorkActionsForUser(int idUser);
+
 
 }

@@ -187,4 +187,9 @@ public class SQLMethods implements DatabaseInterface {
             disconnect();
         }
     }
+
+    @Override
+    public List<WorkAction> getAllWorkActionsForUser(int idUser) {
+        return null;
+    }
 }

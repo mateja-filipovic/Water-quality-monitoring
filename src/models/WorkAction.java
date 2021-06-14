@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class WorkAction {
 
     private int id;
@@ -58,4 +60,13 @@ public class WorkAction {
     public String toString() {
         return this.name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WorkAction that = (WorkAction) o;
+        return id == that.id;
+    }
+
 }

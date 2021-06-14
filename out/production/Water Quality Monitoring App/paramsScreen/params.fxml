@@ -37,7 +37,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
+                  <Label layoutX="72.0" layoutY="9.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -47,7 +47,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
+                  <Label layoutX="130.0" layoutY="9.0" text="0.2" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
+                  <Label layoutX="72.0" layoutY="9.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
+                  <Label layoutX="130.0" layoutY="9.0" text="18" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -138,7 +138,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
+                  <Label layoutX="72.0" layoutY="9.0" text="300" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -148,7 +148,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
+                  <Label layoutX="130.0" layoutY="9.0" text="500" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -212,7 +212,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="9.0" text="50" textFill="WHITE">
+                  <Label layoutX="72.0" layoutY="9.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
@@ -222,7 +222,7 @@
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="130.0" layoutY="9.0" text="100" textFill="WHITE">
+                  <Label layoutX="130.0" layoutY="9.0" text="5" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="12.0" />
                      </font>
