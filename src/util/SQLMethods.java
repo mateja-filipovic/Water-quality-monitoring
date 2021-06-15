@@ -190,6 +190,44 @@ public class SQLMethods implements DatabaseInterface {
 
     @Override
     public List<WorkAction> getAllWorkActionsForUser(int idUser) {
-        return null;
+        connect();
+        List<WorkAction> list = new ArrayList<>();
+        String sql = "SELECT A.IdAkc, A.Vreme, A.Naziv, A.Mesto, A.IdAdm FROM Akcija A INNER JOIN Prijava P USING(IdAkc)" +
+                "WHERE P.IdKor = " + idUser + "ORDER BY A.IdAkc";
+        try(Statement stmt = conn.createStatement()) {
+            try(ResultSet rs = stmt.executeQuery(sql);) {
+                while(rs.next()) {
+                    list.add(new WorkAction(rs.getInt("IdAkc"),
+                            rs.getString("Vreme"),
+                            rs.getString("Naziv"),
+                            rs.getInt("IdAdm"),
+                            rs.getString("Mesto")));
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            disconnect();
+            return list;
+        }
+    }
+
+    @Override
+    public void insertUser(String name, String lastName, String username, String password, String email) {
+        connect();
+        String sql = "INSERT INTO Korisnik(Ime, Prezime, Username, Lozinka, Email, Tip)" +
+                " VALUES (?, ?, ?, ?, ?, 0)";
+        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, lastName);
+            stmt.setString(3, username);
+            stmt.setString(4, password);
+            stmt.setString(5, email);
+            stmt.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            disconnect();
+        }
     }
 }

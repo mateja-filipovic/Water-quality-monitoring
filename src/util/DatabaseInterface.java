@@ -33,5 +33,5 @@ public interface DatabaseInterface {
 
     List<WorkAction> getAllWorkActionsForUser(int idUser);
 
-
+    void insertUser(String name, String lastName, String username, String password, String email);
 }
