@@ -6,15 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import models.User;
 import simulation.Device;
-import simulation.Simulation;
-import util.ControllerObserver;
-import util.UserControllerObserver;
+import util.UserControllerInterface;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,7 +33,7 @@ public class UserHomescreenController implements Initializable{
 
     private User currentUser;
     private Device device;
-    UserControllerObserver currentController;
+    UserControllerInterface currentController;
     private Device currentDevice;
 
 
@@ -79,7 +76,7 @@ public class UserHomescreenController implements Initializable{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(screens.get(fileName)));
             view = loader.load();
-            currentController = (UserControllerObserver) loader.getController();
+            currentController = (UserControllerInterface) loader.getController();
             currentController.setHomeScreenController(this);
         } catch (IOException e) {
             e.printStackTrace();

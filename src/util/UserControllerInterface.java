@@ -3,7 +3,7 @@ package util;
 import homeScreen.HomeScreenController;
 import userHomeScreen.UserHomescreenController;
 
-public interface UserControllerObserver {
+public interface UserControllerInterface {
 
         void setHomeScreenController(UserHomescreenController userHomescreenController);
         void updateView();

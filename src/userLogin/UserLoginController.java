@@ -15,15 +15,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.User;
 import userHomeScreen.UserHomescreenController;
-import util.ControllerObserver;
 import util.SQLMethods;
-import util.UserControllerObserver;
+import util.UserControllerInterface;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserLoginController implements Initializable, UserControllerObserver {
+public class UserLoginController implements Initializable, UserControllerInterface {
 
     @FXML
     public TextField usernameField;

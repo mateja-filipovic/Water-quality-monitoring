@@ -8,19 +8,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.shape.Circle;
 import simulation.Device;
-import util.ControllerObserver;
+import util.ControllerInterface;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DevicesController implements Initializable, ControllerObserver {
+public class DevicesController implements Initializable, ControllerInterface {
 
-    @FXML public ChoiceBox<Device> deviceChoicebox;
-    @FXML public Circle deviceCircle;
-    private List<Device> devices;
-    private HomeScreenController homeScreenController;
+    @FXML private ChoiceBox<Device> deviceChoicebox;
+
+    @FXML private Circle deviceCircle;
+
+    private List<Device> devices; // to populate the choicebox
+
+    private HomeScreenController homeScreenController; // to access the current user
 
     public void exitApp(ActionEvent actionEvent) {
         this.homeScreenController.getSimulation().terminate();
@@ -29,17 +31,10 @@ public class DevicesController implements Initializable, ControllerObserver {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        // ovo prebaciti na devices!
-        //devices = this.homeScreenController.getSimulation().getAllDevices();
-        //String[] arr = new String[items.size()];
-        //items.toArray(arr);
-        //deviceChoicebox.getItems().addAll(devices);
-        //deviceChoicebox.getSelectionModel().selectFirst();
-        //deviceChoicebox.setOnAction(this::choiceChangeHandler);
     }
 
     private void choiceChangeHandler(ActionEvent event){
+        // update circle coordinates
         deviceCircle.setLayoutY(deviceCircle.getLayoutY()-5);
     }
 
@@ -51,10 +46,10 @@ public class DevicesController implements Initializable, ControllerObserver {
 
     @Override
     public void updateView() {
-        // ovo prebaciti na devices!
+        // get the devices from the simulation class
         devices = this.homeScreenController.getSimulation().getAllDevices();
-        //String[] arr = new String[items.size()];
-        //items.toArray(arr);
+
+        //populate the choicebox and set default selection
         deviceChoicebox.getItems().addAll(devices);
         deviceChoicebox.getSelectionModel().selectFirst();
         deviceChoicebox.setOnAction(this::choiceChangeHandler);

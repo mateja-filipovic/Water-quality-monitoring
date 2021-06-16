@@ -12,12 +12,12 @@ import javafx.util.Pair;
 import simulation.Device;
 import userHomeScreen.UserHomescreenController;
 import util.SQLMethods;
-import util.UserControllerObserver;
+import util.UserControllerInterface;
 
 import java.net.URL;
 import java.util.*;
 
-public class UserParamsController implements Initializable, UserControllerObserver {
+public class UserParamsController implements Initializable, UserControllerInterface {
 
     @FXML public Label phLabel;
     @FXML public Circle phCircle;
