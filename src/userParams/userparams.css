@@ -1,0 +1,38 @@
+
+
+.param-container{
+        -fx-background-radius: 5px;
+        -fx-border-radius: 5px;
+        -fx-border-width: 5px;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.bg-white{
+    -fx-background-color: #ffffff;
+}
+
+.label-background{
+    -fx-background-color: #333333;
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-border-radius: 5px;
+    -fx-border-width: 5px;
+}
+
+.selection-menu{
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-control-inner-background: #ededed;
+    -fx-background-insets: 0, 0 0 0 0 ;
+    -fx-background-radius: 5;
+    -fx-text-box-border: transparent;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 0);
+}
+
+.transparent-btn{
+          -fx-border-color:transparent;
+          -fx-background-color: transparent;
+          -fx-border-radius: 5px;
+}
+
+.bg-green{
+          -fx-background-color: #01C26E;
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="375.0" styleClass="bg-white" stylesheets="@userregister.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userRegister.UserRegisterController">
+   <children>
+      <Pane prefHeight="202.0" prefWidth="375.0" styleClass="bg-img-swan">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="119.0" layoutX="33.0" layoutY="42.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="309.0" />
+            <Label layoutX="111.0" layoutY="56.0" text="SWAN" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="50.0" />
+               </font>
+            </Label>
+            <Label layoutX="105.0" layoutY="117.0" text="Smart Water Network" textFill="#fefefe">
+               <font>
+                  <Font name="Segoe UI Bold" size="16.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="143.0" layoutY="175.0" startX="-11.199996948242188" stroke="#01c26e" strokeLineCap="ROUND" strokeWidth="3.0" />
+         </children>
+      </Pane>
+      <TextField fx:id="nameField" layoutX="52.0" layoutY="255.0" prefHeight="26.0" prefWidth="270.0" promptText="Name" styleClass="field" />
+      <PasswordField fx:id="passwordField" layoutX="52.0" layoutY="449.0" prefHeight="26.0" prefWidth="270.0" promptText="Password" styleClass="field" />
+      <TextField fx:id="lnameField" layoutX="52.0" layoutY="304.0" prefHeight="26.0" prefWidth="270.0" promptText="Last Name" styleClass="field" />
+      <TextField fx:id="usernameField" layoutX="51.0" layoutY="403.0" prefHeight="26.0" prefWidth="270.0" promptText="Username" styleClass="field" />
+      <TextField fx:id="emailField" layoutX="52.0" layoutY="355.0" prefHeight="26.0" prefWidth="270.0" promptText="E-mail" styleClass="field" />
+      <Button layoutX="337.0" mnemonicParsing="false" onAction="#exitApp" styleClass="transparent-btn">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/x_btn_black.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Rectangle fill="#01c26e" height="34.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="375.0" />
+      <Button layoutX="134.0" layoutY="497.0" mnemonicParsing="false" onAction="#onClickRegister" prefHeight="93.0" prefWidth="104.0" styleClass="transparent-btn">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/login_btn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

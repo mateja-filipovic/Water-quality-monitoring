@@ -1,0 +1,34 @@
+
+
+.create-button{
+    -fx-background-color: #01C26E;
+}
+
+.bottom-borders{
+        -fx-background-radius: 0 0 5px 5px;
+        -fx-border-width: 5px;
+}
+
+.param-container{
+        -fx-background-radius: 5px;
+        -fx-border-radius: 5px;
+        -fx-border-width: 5px;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.bg-white{
+    -fx-background-color: #ffffff;
+}
+
+.label-background{
+    -fx-background-color: #333333;
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-border-radius: 5px;
+    -fx-border-width: 5px;
+}
+
+.transparent-btn{
+          -fx-border-color:transparent;
+          -fx-background-color: transparent;
+          -fx-border-radius: 5px;
+}

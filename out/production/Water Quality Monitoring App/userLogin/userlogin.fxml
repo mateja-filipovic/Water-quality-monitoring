@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="375.0" styleClass="bg-img-swan" stylesheets="@userlogin.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userLogin.UserLoginController">
+   <children>
+      <Pane layoutX="62.0" layoutY="169.0" prefHeight="286.0" prefWidth="250.0">
+         <children>
+            <ImageView fitHeight="253.0" fitWidth="433.0" layoutX="-66.0" layoutY="-70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/swan_logo.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="usernameField" layoutX="30.0" layoutY="111.0" prefHeight="25.0" prefWidth="188.0" promptText="Username" styleClass="field" />
+            <PasswordField fx:id="passwordField" layoutX="30.0" layoutY="158.0" prefHeight="25.0" prefWidth="188.0" promptText="Password" styleClass="field" />
+            <Button layoutX="96.0" layoutY="205.0" mnemonicParsing="false" onAction="#onClickLogin" styleClass="transparent-btn">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/login_btn.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="bg-white" />
+            <String fx:value="form-container" />
+         </styleClass>
+      </Pane>
+      <Button layoutX="337.0" mnemonicParsing="false" onAction="#exitApp" styleClass="transparent-btn">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/x_btn_black.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="157.0" layoutY="621.0" mnemonicParsing="false" onAction="#onClickRegister" text="REGISTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="12.0" />
+         </font>
+         <styleClass>
+            <String fx:value="transparent-btn" />
+            <String fx:value="bg-green" />
+         </styleClass>
+      </Button>
+      <Label layoutX="121.0" layoutY="594.0" text="Don't have an account?" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

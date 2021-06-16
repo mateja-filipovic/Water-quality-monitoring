@@ -1,0 +1,5 @@
+.transparent-btn{
+          -fx-border-color:transparent;
+          -fx-background-color: transparent;
+          -fx-border-radius: 5px;
+}

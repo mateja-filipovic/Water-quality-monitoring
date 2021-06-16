@@ -1,0 +1,42 @@
+
+
+.bg-white{
+    -fx-background-color: #ffffff;
+}
+
+.bg-img-swan{
+   -fx-background-image: url("../assets/bg.jpg");
+   -fx-background-position: center;
+   -fx-background-repeat: no-repeat;
+   -fx-background-size: cover;
+}
+
+.field{
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-control-inner-background: #EDEDED;
+    -fx-background-insets: 0, 0 0 0 0 ;
+    -fx-background-radius: 5;
+    -fx-text-box-border: transparent;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+.form-container{
+        -fx-background-radius: 5px;
+        -fx-border-radius: 5px;
+        -fx-border-width: 5px;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.transparent-btn{
+          -fx-border-color:transparent;
+          -fx-background-color: transparent;
+          -fx-border-radius: 5px;
+}
+
+.bg-green{
+          -fx-background-color: #01C26E;
+}
+
+.bg-red{
+    -fx-background-color: #e16c6c;
+}

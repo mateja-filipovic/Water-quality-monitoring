@@ -1,0 +1,29 @@
+
+
+.bg-white{
+    -fx-background-color: #ffffff;
+}
+
+.menu-shadow{
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.bg-img-swan{
+   -fx-background-image: url("../assets/bg.jpg");
+   -fx-background-position: center;
+   -fx-background-repeat: no-repeat;
+   -fx-background-size: cover;
+}
+
+.transparent-btn{
+          -fx-border-color:transparent;
+          -fx-background-color: transparent;
+}
+
+.transparent-btn:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.7), 10, 0, 0, 0);
+}
+
+.active-element{
+        -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.7), 10, 0, 0, 0);
+}

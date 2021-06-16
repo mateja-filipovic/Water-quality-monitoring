@@ -193,7 +193,7 @@ public class SQLMethods implements DatabaseInterface {
         connect();
         List<WorkAction> list = new ArrayList<>();
         String sql = "SELECT A.IdAkc, A.Vreme, A.Naziv, A.Mesto, A.IdAdm FROM Akcija A INNER JOIN Prijava P USING(IdAkc)" +
-                "WHERE P.IdKor = " + idUser + "ORDER BY A.IdAkc";
+                "WHERE P.IdKor = " + idUser + " ORDER BY A.IdAkc";
         try(Statement stmt = conn.createStatement()) {
             try(ResultSet rs = stmt.executeQuery(sql);) {
                 while(rs.next()) {
@@ -226,6 +226,34 @@ public class SQLMethods implements DatabaseInterface {
             stmt.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }finally {
+            disconnect();
+        }
+    }
+
+    public void insertWorkApplication(int idAkc, int idKor){
+        connect();
+        String sql = "INSERT INTO PRIJAVA(IdAkc, IdKor) VALUES (?, ?)";
+        try(PreparedStatement statement = conn.prepareStatement(sql)){
+            statement.setInt(1, idAkc);
+            statement.setInt(2, idKor);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            disconnect();
+        }
+    }
+
+    public void deleteWorkApplication(int idAkc, int idKor){
+        connect();
+        String sql = "DELETE FROM Prijava WHERE idAkc = ? AND idKor = ?";
+        try(PreparedStatement statement = conn.prepareStatement(sql)){
+            statement.setInt(1, idAkc);
+            statement.setInt(2, idKor);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }finally {
             disconnect();
         }
