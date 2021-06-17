@@ -23,30 +23,27 @@ public class UserRegisterController {
     @FXML private TextField lnameField;
     @FXML private TextField usernameField;
     @FXML private TextField emailField;
+
     private SQLMethods sqlMethods = new SQLMethods();
 
 
     public void onClickRegister(ActionEvent event) throws IOException {
+        // get the inputs
         String name = nameField.getText();
         String password = passwordField.getText();
         String lname = lnameField.getText();
         String username = usernameField.getText();
         String email = emailField.getText();
 
-
+        // check for empty inputs
         if(name.equals("") || password.equals("") || lname.equals("") || username.equals("") || email.equals("")){
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.initStyle(StageStyle.UNDECORATED);
-            errorAlert.setHeaderText(null);
-            errorAlert.setGraphic(null);
-            errorAlert.setContentText("All fields required");
-            errorAlert.showAndWait();
+            displayErrorNotif();
             return;
         }
 
         sqlMethods.insertUser(name, lname, username, password, email);
 
-
+        // go back after registering
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/userLogin/userlogin.fxml"));
         Parent paramsView = loader.load();
         Scene newScene = new Scene(paramsView);
@@ -57,5 +54,14 @@ public class UserRegisterController {
 
     public void exitApp(){
         Platform.exit();
+    }
+
+    private void displayErrorNotif(){
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.initStyle(StageStyle.UNDECORATED);
+        errorAlert.setHeaderText(null);
+        errorAlert.setGraphic(null);
+        errorAlert.setContentText("All fields required");
+        errorAlert.showAndWait();
     }
 }

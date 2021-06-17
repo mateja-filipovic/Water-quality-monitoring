@@ -38,11 +38,8 @@ public class Simulation extends Thread {
                 count++;
                 synchronized (this) {
                     for(Device s: list) {
-                        System.out.println("updating params");
                         s.updateParameters();
-                        System.out.println("updating view");
                         homeScreenController.updateView();
-                        System.out.println("nex round");
                         if(count == 24 * 60 * 2) {
                             //s.updateBase();
                         }

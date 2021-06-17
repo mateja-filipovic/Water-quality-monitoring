@@ -3,9 +3,9 @@ package userAboutUs;
 import homeScreen.HomeScreenController;
 import javafx.application.Platform;
 import userHomeScreen.UserHomescreenController;
-import util.UserControllerObserver;
+import util.UserControllerInterface;
 
-public class AboutUsController implements UserControllerObserver {
+public class AboutUsController implements UserControllerInterface {
 
     private HomeScreenController homeScreenController;
 
@@ -16,7 +16,7 @@ public class AboutUsController implements UserControllerObserver {
 
     @Override
     public void updateView() {
-
+        // this view doesnt need updating
     }
 
     public void exitApp(){

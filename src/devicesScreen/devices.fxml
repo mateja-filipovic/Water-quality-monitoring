@@ -18,7 +18,7 @@
             <Image url="@../assets/map_of_serbia_devices.jpg" />
          </image>
       </ImageView>
-      <Circle fx:id="deviceCircle" fill="#eaff1f" layoutX="218.0" layoutY="255.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="deviceCircle" fill="#eaff1f" layoutX="109.0" layoutY="278.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Pane layoutX="430.0" layoutY="42.0" prefHeight="105.0" prefWidth="200.0">
          <styleClass>
             <String fx:value="param-container" />

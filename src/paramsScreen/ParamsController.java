@@ -10,23 +10,25 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import simulation.Device;
-import util.ControllerObserver;
+import util.ControllerInterface;
 
-import javax.sound.midi.ControllerEventListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ParamsController implements Initializable, ControllerObserver {
+public class ParamsController implements Initializable, ControllerInterface {
 
-    @FXML public Label ammoniaLabel;
-    @FXML public Label doLabel;
-    @FXML public Label orpLabel;
-    @FXML public Label turbidityLabel;
-    @FXML public BarChart<?, ?> phChart;
-    @FXML public CategoryAxis phChartX;
-    @FXML public NumberAxis phChartY;
+    // param labels
+    @FXML private Label ammoniaLabel;
+    @FXML private Label doLabel;
+    @FXML private Label orpLabel;
+    @FXML private Label turbidityLabel;
+
+    // ph barchart
+    @FXML private BarChart<?, ?> phChart;
+    @FXML private CategoryAxis phChartX;
+    @FXML private NumberAxis phChartY;
+
     private HomeScreenController homeScreenController;
-    private Device currentDevice;
 
     public void exitApp(){
         Platform.exit();
@@ -35,34 +37,7 @@ public class ParamsController implements Initializable, ControllerObserver {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*
-        // dummy values
-        double amonia = 10.2;
-        double disslovedoxy = 5.1;
-        double turbidity = 3.3;
-        double orp = 1.1;
-        // dummy values
-        currentDevice = this.home
-
-        orpLabel.setText(Integer.toString(sonda.getOrp()));
-        doLabel.setText(Double.toString(sonda.getO2()));
-        turbidityLabel.setText(Double.toString(sonda.getTurbidity()));
-        ammoniaLabel.setText(Double.toString(sonda.getNh3()));
-
-        // dummy chart values
-        XYChart.Series set1 = new XYChart.Series<>();
-        double[] phArr = sonda.getArray();
-        set1.getData().add(new XYChart.Data<>("-5", phArr[0]));
-        set1.getData().add(new XYChart.Data<>("-4", phArr[1]));
-        set1.getData().add(new XYChart.Data<>("-3", phArr[2]));
-        set1.getData().add(new XYChart.Data<>("-2", phArr[3]));
-        set1.getData().add(new XYChart.Data<>("-1", phArr[4]));
-        set1.getData().add(new XYChart.Data<>("0", phArr[5]));
-        // dummy chart values
-
-        phChart.getData().addAll(set1);
-        phChart.setLegendVisible(false);
-        */
+        // gui bug fix
         phChart.setAnimated(false);
     }
 
@@ -93,12 +68,15 @@ public class ParamsController implements Initializable, ControllerObserver {
     }
 
     private void viewLoadHelper(){
-        currentDevice  = homeScreenController.getCurrentDevice();
+        // get the device to read params from
+        Device currentDevice = homeScreenController.getCurrentDevice();
+        // read and display param values
         orpLabel.setText(Integer.toString(currentDevice.getOrp()));
         doLabel.setText(String.format("%.3f", currentDevice.getO2()));
         turbidityLabel.setText(String.format("%.3f", currentDevice.getAvgTur()));
         ammoniaLabel.setText(String.format("%.3f", currentDevice.getNh3()));
 
+        // make a data set for pH chart
         XYChart.Series set1 = new XYChart.Series<>();
         double[] phArr = currentDevice.getArray();
         set1.getData().add(new XYChart.Data<>("-5", phArr[0]));
@@ -107,6 +85,7 @@ public class ParamsController implements Initializable, ControllerObserver {
         set1.getData().add(new XYChart.Data<>("-2", phArr[3]));
         set1.getData().add(new XYChart.Data<>("-1", phArr[4]));
         set1.getData().add(new XYChart.Data<>("0", phArr[5]));
+
         phChart.getData().clear();
         phChart.getData().addAll(set1);
         phChart.setLegendVisible(false);

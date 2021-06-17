@@ -6,15 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import models.User;
 import simulation.Device;
-import simulation.Simulation;
-import util.ControllerObserver;
-import util.UserControllerObserver;
+import util.UserControllerInterface;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,14 +26,15 @@ public class UserHomescreenController implements Initializable{
     @FXML public Button aboutButton;
     @FXML private BorderPane mainPane;
 
-    private Map<String, String> screens;
-    private Map<Integer, Button> buttonSelectors;
+    private Map<String, String> screens;  // filename to filepath mapping
+    private Map<Integer, Button> buttonSelectors; // selector to button mapping
 
     private int selected = 0; // 0 params, 1 devices, 2 analytics, 3 actions
 
     private User currentUser;
-    private Device device;
-    UserControllerObserver currentController;
+
+    UserControllerInterface currentController;
+
     private Device currentDevice;
 
 
@@ -55,6 +53,7 @@ public class UserHomescreenController implements Initializable{
     public void setCurrentUser(User currentUser){
         this.currentUser = currentUser;
     }
+
     public User getCurrentUser(){ return this.currentUser; }
 
     @Override
@@ -69,6 +68,7 @@ public class UserHomescreenController implements Initializable{
         buttonSelectors.put(1, actionsButton);
         buttonSelectors.put(2, aboutButton);
 
+        // load the default param scene
         Pane view = getPage("userParams");
         buttonSelectors.get(selected).getStyleClass().add("active-element");
         mainPane.setCenter(view);
@@ -79,7 +79,7 @@ public class UserHomescreenController implements Initializable{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(screens.get(fileName)));
             view = loader.load();
-            currentController = (UserControllerObserver) loader.getController();
+            currentController = (UserControllerInterface) loader.getController();
             currentController.setHomeScreenController(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -95,6 +95,7 @@ public class UserHomescreenController implements Initializable{
         mainPane.setCenter(newPane);
     }
 
+    // universal click selector
     private void handleMenuClick(int mySelector, String fileName){
         if(selected == mySelector)
             return;
