@@ -24,35 +24,34 @@ import java.util.ResourceBundle;
 
 public class UserLoginController implements Initializable, UserControllerInterface {
 
-    @FXML
-    public TextField usernameField;
-    @FXML public PasswordField passwordField;
+    @FXML private TextField usernameField;
+    @FXML private PasswordField passwordField;
     private UserHomescreenController userHomescreenController;
 
 
     public void onClickLogin(ActionEvent event) throws IOException {
+        // get user from db
         User currentUser = new SQLMethods().getUserFromDB(usernameField.getText(), passwordField.getText(), 0);
         if(currentUser == null){
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.initStyle(StageStyle.UNDECORATED);
-            errorAlert.setHeaderText(null);
-            errorAlert.setGraphic(null);
-            errorAlert.setContentText("Incorrect username or password");
-            errorAlert.showAndWait();
+            displayErrorNotif();
             return;
         }
+
+        // pull the fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/userHomeScreen/userhomescreen.fxml"));
         Parent paramsView = loader.load();
 
         UserHomescreenController userHomescreenController = loader.getController();
         userHomescreenController.setCurrentUser(currentUser);
 
+        // load the scene
         Scene newScene = new Scene(paramsView);
         Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
         window.setScene(newScene);
         window.show();
     }
 
+    // load the register scene
     public void onClickRegister(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/userRegister/userRegister.fxml"));
         Parent paramsView = loader.load();
@@ -79,5 +78,14 @@ public class UserLoginController implements Initializable, UserControllerInterfa
     @Override
     public void updateView() {
 
+    }
+
+    private void displayErrorNotif(){
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.initStyle(StageStyle.UNDECORATED);
+        errorAlert.setHeaderText(null);
+        errorAlert.setGraphic(null);
+        errorAlert.setContentText("Incorrect username or password");
+        errorAlert.showAndWait();
     }
 }

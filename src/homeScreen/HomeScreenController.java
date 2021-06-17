@@ -78,8 +78,14 @@ public class HomeScreenController implements Initializable {
         simulation = new Simulation(5, this);
 
         // current simulation
-        currentDevice = new Device(1, 10, "Arandjelovac");
-        simulation.addDevice(currentDevice);
+        Device deviceAR = new Device(1, 1, "Arandjelovac");
+        Device deviceLJ = new Device(2, 2, "Ljubovija");
+        Device deviceBG = new Device(3, 3, "Beograd");
+        currentDevice = deviceAR;
+
+        simulation.addDevice(deviceAR);
+        simulation.addDevice(deviceLJ);
+        simulation.addDevice(deviceBG);
 
         // load the default screen
         Pane view = getPage("paramsScreen");

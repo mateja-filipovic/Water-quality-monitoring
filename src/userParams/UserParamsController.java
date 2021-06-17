@@ -19,29 +19,38 @@ import java.util.*;
 
 public class UserParamsController implements Initializable, UserControllerInterface {
 
-    @FXML public Label phLabel;
-    @FXML public Circle phCircle;
+    // labels for ph, orp, dissolved oxy, ammonia conc, turbidity
+    @FXML private Label phLabel;
+    @FXML private Circle phCircle;
 
-    @FXML public Label orpLabel;
-    @FXML public Circle orpCircle;
+    @FXML private Label orpLabel;
+    @FXML private Circle orpCircle;
 
-    @FXML public Label doLabel;
-    @FXML public Circle doCircle;
+    @FXML private Label doLabel;
+    @FXML private Circle doCircle;
 
-    @FXML public Label ammoniaLabel;
-    @FXML public Circle ammoniaCircle;
+    @FXML private Label ammoniaLabel;
+    @FXML private Circle ammoniaCircle;
 
-    @FXML public Label turbLabel;
-    @FXML public Circle turbidityCircle;
+    @FXML private Label turbLabel;
+    @FXML private Circle turbidityCircle;
 
+    @FXML private ChoiceBox<Device> deviceChoicebox;
+
+    // maps labels and status indicators to selectors
     private Map<Integer, Pair<Label, Circle>> paramsMap;
 
     private UserHomescreenController userHomescreenController;
-    private Device device = new Device(1, 1, "Arandjelovac");
-    private Device device2 = new Device(2, 2, "Ljubovija");
-    private Device currentDevice = device;
+
+    // available device list
+    private Device deviceAR = new Device(1, 1, "Arandjelovac");
+    private Device deviceLJ = new Device(2, 2, "Ljubovija");
+    private Device deviceBG = new Device(3, 3, "Beograd");
+
+    private Device currentDevice = deviceAR;
+
     private SQLMethods sqlMethods = new SQLMethods();
-    @FXML private ChoiceBox<Device> deviceChoicebox;
+
     List<Double> currentParams;
     List<Pair<Double, Double>> refValues;
 
@@ -56,6 +65,7 @@ public class UserParamsController implements Initializable, UserControllerInterf
 
     @Override
     public void updateView() {
+        // conditional rendering of indicators and labels
         for(int i = 0; i < currentParams.size(); i++){
             boolean status = getParamStatus(i, currentParams.get(i));
             if(status){
@@ -75,8 +85,8 @@ public class UserParamsController implements Initializable, UserControllerInterf
         paramsMap = new HashMap<>();
         refValues = new ArrayList<>();
 
-        deviceChoicebox.getItems().addAll(device, device2);
-        deviceChoicebox.getSelectionModel().select(device);
+        deviceChoicebox.getItems().addAll(deviceAR, deviceLJ, deviceBG);
+        deviceChoicebox.getSelectionModel().select(currentDevice);
         deviceChoicebox.setOnAction(this::choiceChangeHandler);
 
         if(currentDevice == null)
@@ -100,10 +110,11 @@ public class UserParamsController implements Initializable, UserControllerInterf
 
     private void choiceChangeHandler(ActionEvent event) {
         this.currentDevice = deviceChoicebox.getSelectionModel().getSelectedItem();
-        this.currentParams = sqlMethods.getParams(currentDevice).get(4);
+        this.currentParams = sqlMethods.getParams(currentDevice).get(0);
         updateView();
     }
 
+    // check if params are in allowed range
     private boolean getParamStatus(int paramId, double value){
         if(value >= refValues.get(paramId).getKey() && value <= refValues.get(paramId).getValue())
             return true;

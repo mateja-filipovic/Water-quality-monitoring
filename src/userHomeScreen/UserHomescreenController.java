@@ -26,14 +26,15 @@ public class UserHomescreenController implements Initializable{
     @FXML public Button aboutButton;
     @FXML private BorderPane mainPane;
 
-    private Map<String, String> screens;
-    private Map<Integer, Button> buttonSelectors;
+    private Map<String, String> screens;  // filename to filepath mapping
+    private Map<Integer, Button> buttonSelectors; // selector to button mapping
 
     private int selected = 0; // 0 params, 1 devices, 2 analytics, 3 actions
 
     private User currentUser;
-    private Device device;
+
     UserControllerInterface currentController;
+
     private Device currentDevice;
 
 
@@ -52,6 +53,7 @@ public class UserHomescreenController implements Initializable{
     public void setCurrentUser(User currentUser){
         this.currentUser = currentUser;
     }
+
     public User getCurrentUser(){ return this.currentUser; }
 
     @Override
@@ -66,6 +68,7 @@ public class UserHomescreenController implements Initializable{
         buttonSelectors.put(1, actionsButton);
         buttonSelectors.put(2, aboutButton);
 
+        // load the default param scene
         Pane view = getPage("userParams");
         buttonSelectors.get(selected).getStyleClass().add("active-element");
         mainPane.setCenter(view);
@@ -92,6 +95,7 @@ public class UserHomescreenController implements Initializable{
         mainPane.setCenter(newPane);
     }
 
+    // universal click selector
     private void handleMenuClick(int mySelector, String fileName){
         if(selected == mySelector)
             return;

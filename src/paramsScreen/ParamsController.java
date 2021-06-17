@@ -30,8 +30,6 @@ public class ParamsController implements Initializable, ControllerInterface {
 
     private HomeScreenController homeScreenController;
 
-    private Device currentDevice;
-
     public void exitApp(){
         Platform.exit();
         this.homeScreenController.getSimulation().terminate();
@@ -71,7 +69,7 @@ public class ParamsController implements Initializable, ControllerInterface {
 
     private void viewLoadHelper(){
         // get the device to read params from
-        currentDevice  = homeScreenController.getCurrentDevice();
+        Device currentDevice = homeScreenController.getCurrentDevice();
         // read and display param values
         orpLabel.setText(Integer.toString(currentDevice.getOrp()));
         doLabel.setText(String.format("%.3f", currentDevice.getO2()));

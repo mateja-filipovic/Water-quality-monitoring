@@ -58,14 +58,14 @@ public class AnalyticsController implements Initializable, ControllerInterface {
 
     @Override
     public void updateView() {
-        // create data sets
-        XYChart.Series[] sets = new XYChart.Series[5];
-        for(int i = 0; i < 5; i++)
-            sets[i] = new XYChart.Series<>();
-
         // read params from db
         sqlMethods = new SQLMethods();
         paramsMatrix = sqlMethods.getParams(this.homeScreenController.getCurrentDevice());
+
+        // create data sets
+        XYChart.Series[] sets = new XYChart.Series[paramsMatrix.size()];
+        for(int i = 0; i < sets.length; i++)
+            sets[i] = new XYChart.Series<>();
 
         // populate data sets
         int index = 0;
